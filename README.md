@@ -1,0 +1,2 @@
+# Kandi
+Bachelor thesis 
