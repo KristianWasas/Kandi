@@ -1,0 +1,61 @@
+--------------------------------------------------------------------------------------------------------
+This is a version of a minimax algorithm with a-b pruning implemented. The only difference 
+we can do for a-b pruning in what order the moves are generated, versions 2.x will have different move ordering 
+and we can then compare them together, and the original version 1.0.
+
+This version has moves generated in the following order
+
+pawn promotions, king captures, pawn captures = queen, knight captures = queen, bishop captures = queen,
+rook captures = queen, pawn captures = rook, knight captures = rook, bishop captures = rook,
+pawn captures = knight/bishop, pawn captures = pawn, knight captures = knight, bishop captures = bishop,
+rook captures = rook, queen captures = queen, horse captures = pawn, bishop captures = pawn,
+rook captures = bishop/horse/pawn, queen captures = bishop/horse/pawn/queen
+castling, queen moves, rook moves, bishop moves, knight moves, pawn moves, king moves,
+
+Moves in this context mean no captures, ie moves onto empty squares. And captures > x means captures were
+the captured piece is greater than the value of x, Were pawn = 1, bishop/horse = 3, rook = 5, queen = 9
+--------------------------------------------------------------------------------------------------------
+
+int minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth, int alpha, int beta){
+    
+    if(depth == maxDepth){                              //Once weve reached the desired depth, we just return the evaluation
+        return evaluation(board);
+    }
+
+    vector<bitBoard> moves;                             //Initialize needed variables
+    int eval;
+    moves.reserve(50);
+
+    if(whiteTurn){                                      //White ie. maximizing player
+        generateWhiteMoves(board, moves);               //Generate all possible moves for white, and store them in moves
+        if(moves.empty()){                              //If no moves possible, check is the white king in check and return NEGINF if yes or 0 if in stalemate
+            return whiteKingCheck(board);
+        }
+        eval = NEGINF;                                  
+        for(bitBoard &i : moves){                       //Loop over all possible moves, and recursively call minimax, if found move is better than existing one, replace
+            int moveEval = minimax(i, depth + 1, false, maxDepth, alpha, beta);
+            eval = max(eval, moveEval);     
+            if(beta <= eval){                           //If there exists a beta (beta being the best option for the minimizer in a parent node so far)
+                break;                                  //That is smaller than the current value of the node we are in, we know that the minimizing player
+            }                                           //Would never choose this path, since a better one is available, and we can terminate, the search 
+            alpha = max(alpha, eval);                   //We update alpha to be the best value
+        }
+        return eval;                                    //We return the value of the best move/child node
+    }
+    else{                                               //Minimizing player, same process as for white, but we minimize and return INF if in checkmate
+        generateBlackMoves(board, moves);
+        if(moves.empty()){
+            return blackKingCheck(board);
+        }
+        eval = INF;                                     //Again we initialize, but as INF, since black tries to minimize the score
+        for(bitBoard &i : moves){
+            int moveEval = minimax(i, depth + 1, true, maxDepth, alpha, beta);
+            eval = min(eval, moveEval);                 //Same process as for the maximizer, but mirrored and using alpha (best option for a maximizing parent node)
+            if(alpha >= eval){
+                break;
+            }
+            beta = min(beta, eval);
+        }
+        return eval;
+    }
+}

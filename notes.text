@@ -1,0 +1,6 @@
+1) only in a Maximizer node can update the corresponding alpha, so does Minimizer for beta.
+2) value can only be returned up to its parent
+3) alpha and beta can only be passed down from its parent
+4) a-b passed down, value passed up
+5) cutoffs happen if there has been found a better route to a leaf, either for minimizer or maximizer from a direct parent node (or grandpaernt, grandgrandparent, ...) 
+6) a cutoff cant happen before the node has gotten some value ceiling/floor

@@ -1,0 +1,42 @@
+--------------------------------------------------------------------------------------------------------
+This is a "control" version, ie. a plain minimax function to depth maxDepth, with no modification
+Note maxDepth is reliant on the starting position, ie. one position will have a different maxDepth than 
+another one, this is because some positions are simpler and we can afford to go deeper to get larger 
+tree sizes to compare etc.
+--------------------------------------------------------------------------------------------------------
+
+int minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth){
+
+    if(depth == maxDepth){
+        return evaluation(board);                       //Once weve reached the desired depth, we just return the evaluation
+    }
+
+    vector<bitBoard> moves;                             //Initialize needed variables
+    int eval;
+    moves.reserve(50);
+
+    if(whiteTurn){                                      //White ie. maximizing player
+        generateWhiteMoves(board, moves);               //Generate all possible moves for white, and store them in moves
+        if(moves.empty()){                              //If no moves possible, check is the white king in check and return NEGINF if yes or 0 if in stalemate
+            return whiteKingCheck(board);
+        }
+        eval = NEGINF;                                  //Initialize best found value to NEGINF, since any move we find is better than nothing (since no move is an illegal move in chess)
+        for(bitBoard &i : moves){                       //Loop over all possible moves, and recursively call minimax, if found move is better than existing one, replace
+            int moveEval = minimax(i, depth + 1, false, maxDepth);
+            eval = max(eval, moveEval);
+        }
+        return eval;                                    //We return the value of the best move/child node
+    }
+    else{                                               //Minimizing player, same process as for white, but we minimize and return INF if in checkmate
+        generateBlackMoves(board, moves);
+        if(moves.empty()){
+            return blackKingCheck(board);
+        }
+        eval = INF;                                     //Again we initialize, but as INF, since black tries to minimize the score
+        for(bitBoard &i : moves){
+            int moveEval = minimax(i, depth + 1, true, maxDepth);
+            eval = min(eval, moveEval);
+        }
+        return eval;
+    }
+}
