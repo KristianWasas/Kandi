@@ -10,7 +10,7 @@ ATM on:
 - Testing, Itse kandi data keruuta varten
 - testData, siellä on kandissa käytettävä "raaka" data, 
 
-Jos haluaa ladata itselleen antaa mennä, HUOM! compiling vaatii oikean version
+Jos haluaa ladata itselleen antaa mennä, HUOM! compiling vaatii oikean version ja toimii vaan Windowsilla
 
 Oikea g++ versio on "g++.exe (Rev6, Built by MSYS2 project) 11.2.0" 
 
