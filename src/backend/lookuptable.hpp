@@ -29,6 +29,9 @@ const static uint64_t knightMasks[64] = {0x20400LL, 0x50800LL, 0xa1100LL, 0x1422
                                       0x203000000000000LL, 0x507000000000000LL, 0xa0e000000000000LL, 0x141c000000000000LL, 0x2838000000000000LL, 0x5070000000000000LL, 0xa0e0000000000000LL, 
                                       0x40c0000000000000LL};
 
+
+//Table weights are taken from https://www.chessprogramming.org/PeSTO%27s_Evaluation_Function
+
 const static int mg_pawn_table_w[64] = {
       0,   0,   0,   0,   0,   0,  0,   0,
      98, 134,  61,  95,  68, 126, 34, -11,
