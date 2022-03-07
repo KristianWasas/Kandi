@@ -1,6 +1,10 @@
 # Kandi
 Bachelor thesis 
 
+Työn tarkoituksena on tutkia eri konseptien implementointia minimax hakualgoritmiin shakissa. Sitten vertaillaan muodostuneita haku puita ja yritetään näin ollen parantaa alkuperäistä hakualgoritmia. 
+
+Lukuun ottamatta paria lookuptablen osaa, kaikki on itse koodattu. 
+
 Vaiheessa vielä
 
 ATM on:
