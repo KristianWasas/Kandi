@@ -77,6 +77,24 @@ void Game::update(sf::Vector2i mouse){
         }
     }
 
+    //Human moves
+    //First we try to grab a piece
+    if(!gameEnd && !hasPieceGrabbed){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            for(Piece* i : pieces){
+                if((i->getPos().first == mousePosGrid.y) && (i->getPos().second == mousePosGrid.x)){
+                    if(whiteTurn == i->colour){
+                        grabbedPiece = i;
+                        grabbedPiece->grabbed = true;
+                        hasPieceGrabbed = true;
+                        cordsForGrabbedPiece = mousePosGrid;
+                    }
+                }
+            }
+        }
+    }
+
+    //AI moves, human moves continues after this
     if(!gameEnd && (aiColour == whiteTurn)){ 
         sf::Clock time;
         //Place holder variables for highlighting moves piece
@@ -111,23 +129,6 @@ void Game::update(sf::Vector2i mouse){
         whiteTurn = !whiteTurn;
     }
     
-
-    //Human moves
-    //First we try to grab a piece
-    if(!gameEnd && !hasPieceGrabbed){
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            for(Piece* i : pieces){
-                if((i->getPos().first == mousePosGrid.y) && (i->getPos().second == mousePosGrid.x)){
-                    if(whiteTurn == i->colour){
-                        grabbedPiece = i;
-                        grabbedPiece->grabbed = true;
-                        hasPieceGrabbed = true;
-                        cordsForGrabbedPiece = mousePosGrid;
-                    }
-                }
-            }
-        }
-    }
     //If we have a grabbed piece, we then make the move
     if(hasPieceGrabbed){
         grabbedPiece->updateMousePos(mousePos);
