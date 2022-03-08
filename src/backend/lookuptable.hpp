@@ -32,7 +32,7 @@ const static uint64_t knightMasks[64] = {0x20400LL, 0x50800LL, 0xa1100LL, 0x1422
 
 //Table weights are taken from https://www.chessprogramming.org/PeSTO%27s_Evaluation_Function
 
-const static int mg_pawn_table_w[64] = {
+const static int32_t mg_pawn_table_w[64] = {
       0,   0,   0,   0,   0,   0,  0,   0,
      98, 134,  61,  95,  68, 126, 34, -11,
      -6,   7,  26,  31,  65,  56, 25, -20,
@@ -43,7 +43,7 @@ const static int mg_pawn_table_w[64] = {
       0,   0,   0,   0,   0,   0,  0,   0
 };
 
-const static int eg_pawn_table_w[64] = {
+const static int32_t eg_pawn_table_w[64] = {
       0,   0,   0,   0,   0,   0,   0,   0,
     178, 173, 158, 134, 147, 132, 165, 187,
      94, 100,  85,  67,  56,  53,  82,  84,
@@ -54,7 +54,7 @@ const static int eg_pawn_table_w[64] = {
       0,   0,   0,   0,   0,   0,   0,   0
 };
 
-const static int mg_knight_table_w[64] = {
+const static int32_t mg_knight_table_w[64] = {
     -167, -89, -34, -49,  61, -97, -15, -107,
      -73, -41,  72,  36,  23,  62,   7,  -17,
      -47,  60,  37,  65,  84, 129,  73,   44,
@@ -65,7 +65,7 @@ const static int mg_knight_table_w[64] = {
     -105, -21, -58, -33, -17, -28, -19,  -23
 };
 
-const static int eg_knight_table_w[64] = {
+const static int32_t eg_knight_table_w[64] = {
     -58, -38, -13, -28, -31, -27, -63, -99,
     -25,  -8, -25,  -2,  -9, -25, -24, -52,
     -24, -20,  10,   9,  -1,  -9, -19, -41,
@@ -76,7 +76,7 @@ const static int eg_knight_table_w[64] = {
     -29, -51, -23, -15, -22, -18, -50, -64
 };
 
-const static int mg_bishop_table_w[64] = {
+const static int32_t mg_bishop_table_w[64] = {
     -29,   4, -82, -37, -25, -42,   7,  -8,
     -26,  16, -18, -13,  30,  59,  18, -47,
     -16,  37,  43,  40,  35,  50,  37,  -2,
@@ -87,7 +87,7 @@ const static int mg_bishop_table_w[64] = {
     -33,  -3, -14, -21, -13, -12, -39, -21
 };
 
-const static int eg_bishop_table_w[64] = {
+const static int32_t eg_bishop_table_w[64] = {
     -14, -21, -11,  -8, -7,  -9, -17, -24,
      -8,  -4,   7, -12, -3, -13,  -4, -14,
       2,  -8,   0,  -1, -2,   6,   0,   4,
@@ -98,7 +98,7 @@ const static int eg_bishop_table_w[64] = {
     -23,  -9, -23,  -5, -9, -16,  -5, -17
 };
 
-const static int mg_rook_table_w[64] = {
+const static int32_t mg_rook_table_w[64] = {
      32,  42,  32,  51, 63,  9,  31,  43,
      27,  32,  58,  62, 80, 67,  26,  44,
      -5,  19,  26,  36, 17, 45,  61,  16,
@@ -109,7 +109,7 @@ const static int mg_rook_table_w[64] = {
      -9, -23,  -8,  17, 16,  7, -37,  -6
 };
 
-const static int eg_rook_table_w[64] = {
+const static int32_t eg_rook_table_w[64] = {
     13, 10, 18, 15, 12,  12,   8,   5,
     11, 13, 13, 11, -3,   3,   8,   3,
      7,  7,  7,  5,  4,  -3,  -5,  -3,
@@ -120,7 +120,7 @@ const static int eg_rook_table_w[64] = {
     -9,  2,  3, -1, -5, -13,   4, -20
 };
 
-const static int mg_queen_table_w[64] = {
+const static int32_t mg_queen_table_w[64] = {
     -28,   0,  29,  12,  59,  44,  43,  45,
     -24, -39,  -5,   1, -16,  57,  28,  54,
     -13, -17,   7,   8,  29,  56,  47,  57,
@@ -131,7 +131,7 @@ const static int mg_queen_table_w[64] = {
      -1, -18,  -9,  10, -15, -25, -31, -50
 };
 
-const static int mg_queen_table_b[64] = {
+const static int32_t mg_queen_table_b[64] = {
         45,  43,  44,  59,  12,  29,   0, -28,
         54,  28,  57, -16,   1,  -5, -39, -24,
         57,  47,  56,  29,   8,   7, -17, -13,
@@ -143,7 +143,7 @@ const static int mg_queen_table_b[64] = {
 };
 
 
-const static int eg_queen_table_w[64] = {
+const static int32_t eg_queen_table_w[64] = {
      -9,  22,  22,  27,  27,  19,  10,  20,
     -17,  20,  32,  41,  58,  25,  30,   0,
     -20,   6,   9,  49,  47,  35,  19,   9,
@@ -154,7 +154,7 @@ const static int eg_queen_table_w[64] = {
     -33, -28, -22, -43,  -5, -32, -20, -41
 };
 
-const static int mg_king_table_w[64] = {
+const static int32_t mg_king_table_w[64] = {
     -65,  23,  16, -15, -56, -34,   2,  13,
      29,  -1, -20,  -7,  -8,  -4, -38, -29,
      -9,  24,   2, -16, -20,   6,  22, -22,
@@ -165,7 +165,7 @@ const static int mg_king_table_w[64] = {
     -15,  36,  12, -54,   8, -28,  24,  14
 };
 
-const static int mg_king_table_b[64] = {
+const static int32_t mg_king_table_b[64] = {
         13,   2, -34, -56, -15,  16,  23, -65,
        -29, -38,  -4,  -8,  -7, -20,  -1,  29,
        -22,  22,   6, -20, -16,   2,  24,  -9,
@@ -176,7 +176,7 @@ const static int mg_king_table_b[64] = {
         14,  24, -28,   8, -54,  12,  36, -15
 };
 
-const static int eg_king_table_w[64] = {
+const static int32_t eg_king_table_w[64] = {
    -100, -90, -70, -60, -60, -70, -90, -100,
     -90, -40, -20, -20, -20, -20, -40, -90,
     -70, -20,  12,  15,  15,  12, -20, -70,

@@ -1,0 +1,54 @@
+--------------------------------------------------------------------------------------------------------
+This is a version of a minimax algorithm with a transposition table implemented. The only difference 
+we can do for TT is do we allow shollewer searches to return values for nodes that would normally require
+a deeper search. For example a position is encountered the first time at depth 6, we store the value 
+in the table. But we encounter the exact position at depth 4, now can still accept this result and 
+return it, but doing so might change the outcome of the search and miss something, but will lead to a 
+smaller tree. 
+
+This version requires the depths of the already searched node and the node we are checking to be equal or less.
+ie. the position has already be searched a t an equivalent depth or higher up th tree
+--------------------------------------------------------------------------------------------------------
+
+int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth, int32_t alpha, int32_t beta){
+
+    //Transpostion table lookup 
+    uint64_t posHash = hashFunction(board, whiteTurn);      //Create a unique key
+    if(table.count(posHash)){       //If the hashkey is found, dont care at what depth take the value
+            return table[posHash].first;
+    }
+
+
+    if(depth >= maxDepth){                              //Once weve reached the desired depth, we just return the evaluation
+        return evaluation(board);
+    }
+
+    vector<bitBoard> moves;                             //Initialize needed variables
+    int32_t eval;
+    moves.reserve(50);
+
+    if(whiteTurn){                                      //White ie. maximizing player
+        generateWhiteMoves(board, moves);               //Generate all possible moves for white, and store them in moves
+        if(moves.empty()){                              //If no moves possible, check is the white king in check and return NEGINF if yes or 0 if in stalemate
+            return whiteKingCheck(board);              
+        }                                              
+        eval = NEGINF;                                  
+        for(bitBoard &i : moves){                       //Loop over all possible moves, and recursively call minimax, if found move is better than existing one, replace
+            int32_t moveEval = minimax(i, depth + 1, false, maxDepth, alpha, beta);
+            eval = max(eval, moveEval);     
+        }
+    }
+    else{                                               //Minimizing player, same process as for white, but we minimize and return INF if in checkmate
+        generateBlackMoves(board, moves);
+        if(moves.empty()){
+            return blackKingCheck(board);
+        }
+        eval = INF;                                     //Again we initialize, but as INF, since black tries to minimize the score
+        for(bitBoard &i : moves){
+            int32_t moveEval = minimax(i, depth + 1, true, maxDepth, alpha, beta);
+            eval = min(eval, moveEval);                 //Same process as for the maximizer, but mirrored and using alpha (best option for a maximizing parent node)     
+        }
+    }
+    table.emplace(posHash, make_pair(eval, depth));
+    return eval;        //Return the value of the best child node
+}

@@ -1,0 +1,1063 @@
+---------------------------------------------
+Starting tests
+---------------------------------------------
+Testing Position 0: r3qb1k/1b4p1/p2pr2p/3n4/Pnp1N1N1/6RP/1B3PP1/1B1QR1K1 w - -
+ r  .  .  .  q  b  .  k
+ .  b  .  .  .  .  p  .
+ p  .  .  p  r  .  .  p
+ .  .  .  n  .  .  .  .
+ P  n  p  .  N  .  N  .
+ .  .  .  .  .  .  R  P
+ .  B  .  .  .  P  P  .
+ .  B  .  Q  R  .  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 61.9476 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 47
+Nodes at depth 2: 1820
+Nodes at depth 3: 85812
+Nodes at depth 4: 1982360
+Nodes at depth 5: 52592422
+Primary search total nodes: 54662462
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 53490672
+Total amount of nodes: 54662462
+Branching factor: 46.6487
+Best move: r3qb1K/1b4p1/p2pr2N/3n4/Pnp1N3/6RP/1B3PP1/1B1QR1K1 b - -
+ r  .  .  .  q  b  .  k
+ .  b  .  .  .  .  p  .
+ p  .  .  p  r  .  .  N
+ .  .  .  n  .  .  .  .
+ P  n  p  .  N  .  .  .
+ .  .  .  .  .  .  R  P
+ .  B  .  .  .  P  P  .
+ .  B  .  Q  R  .  K  .
+Evaluation: 1.94
+
+---------------------------------------------
+
+Testing Position 1: r4rk1/pp1n1p1p/1nqP2p1/2b1P1B1/4NQ2/1B3P2/PP2K2P/2R5 w - -
+ r  .  .  .  .  r  k  .
+ p  p  .  n  .  p  .  p
+ .  n  q  P  .  .  p  .
+ .  .  b  .  P  .  B  .
+ .  .  .  .  N  Q  .  .
+ .  B  .  .  .  P  .  .
+ P  P  .  .  K  .  .  P
+ .  .  R  .  .  .  .  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 44.4085 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 47
+Nodes at depth 2: 1547
+Nodes at depth 3: 67757
+Nodes at depth 4: 1409802
+Nodes at depth 5: 38522184
+Primary search total nodes: 40001338
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 39031081
+Total amount of nodes: 40001338
+Branching factor: 41.2276
+Best move: r4rK1/pp1n1p1p/1nqP2p1/2N1P1B1/5Q2/1B3P2/PP2K2P/2R5 b - -
+ r  .  .  .  .  r  k  .
+ p  p  .  n  .  p  .  p
+ .  n  q  P  .  .  p  .
+ .  .  N  .  P  .  B  .
+ .  .  .  .  .  Q  .  .
+ .  B  .  .  .  P  .  .
+ P  P  .  .  K  .  .  P
+ .  .  R  .  .  .  .  .
+Evaluation: -0.17
+
+---------------------------------------------
+
+Testing Position 2: r2qk2r/ppp1b1pp/2n1p3/3pP1n1/3P2b1/2PB1NN1/PP4PP/R1BQK2R w KQkq -
+ r  .  .  q  k  .  .  r
+ p  p  p  .  b  .  p  p
+ .  .  n  .  p  .  .  .
+ .  .  .  p  P  .  n  .
+ .  .  .  P  .  .  b  .
+ .  .  P  B  .  N  N  .
+ P  P  .  .  .  .  P  P
+ R  .  B  Q  K  .  .  R
+Primary search to depth: 5
+Time to create and traverse the search tree: 47.006 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 44
+Nodes at depth 2: 1630
+Nodes at depth 3: 67657
+Nodes at depth 4: 1562078
+Nodes at depth 5: 39959427
+Primary search total nodes: 41590837
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 40551869
+Total amount of nodes: 41590837
+Branching factor: 40.0309
+Best move: r2qK2r/ppp1b1pp/2n1p3/1B1pP1n1/3P2b1/2P2NN1/PP4PP/R1BQK2R b KQkq -
+ r  .  .  q  k  .  .  r
+ p  p  p  .  b  .  p  p
+ .  .  n  .  p  .  .  .
+ .  B  .  p  P  .  n  .
+ .  .  .  P  .  .  b  .
+ .  .  P  .  .  N  N  .
+ P  P  .  .  .  .  P  P
+ R  .  B  Q  K  .  .  R
+Evaluation: 0.8
+
+---------------------------------------------
+
+Testing Position 3: r1b1kb1r/1p1n1ppp/p2ppn2/6BB/2qNP3/2N5/PPP2PPP/R2Q1RK1 w kq -
+ r  .  b  .  k  b  .  r
+ .  p  .  n  .  p  p  p
+ p  .  .  p  p  n  .  .
+ .  .  .  .  .  .  B  B
+ .  .  q  N  P  .  .  .
+ .  .  N  .  .  .  .  .
+ P  P  P  .  .  P  P  P
+ R  .  .  Q  .  R  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 49.1538 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 47
+Nodes at depth 2: 1665
+Nodes at depth 3: 74471
+Nodes at depth 4: 1662056
+Nodes at depth 5: 41936686
+Primary search total nodes: 43674926
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 42662200
+Total amount of nodes: 43674926
+Branching factor: 43.1261
+Best move: r1b1Kb1r/1p1n1ppp/p2ppn2/6B1/2qNP3/2N5/PPP1BPPP/R2Q1RK1 b kq -
+ r  .  b  .  k  b  .  r
+ .  p  .  n  .  p  p  p
+ p  .  .  p  p  n  .  .
+ .  .  .  .  .  .  B  .
+ .  .  q  N  P  .  .  .
+ .  .  N  .  .  .  .  .
+ P  P  P  .  B  P  P  P
+ R  .  .  Q  .  R  K  .
+Evaluation: 3.34
+
+---------------------------------------------
+
+Testing Position 4: r2qrb1k/1p1b2p1/p2ppn1p/8/3NP3/1BN5/PPP3QP/1K3RR1 w - -
+ r  .  .  q  r  b  .  k
+ .  p  .  b  .  .  p  .
+ p  .  .  p  p  n  .  p
+ .  .  .  .  .  .  .  .
+ .  .  .  N  P  .  .  .
+ .  B  N  .  .  .  .  .
+ P  P  P  .  .  .  Q  P
+ .  K  .  .  .  R  R  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 32.5583 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 42
+Nodes at depth 2: 1265
+Nodes at depth 3: 55576
+Nodes at depth 4: 1025379
+Nodes at depth 5: 28408430
+Primary search total nodes: 29490693
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 28822165
+Total amount of nodes: 29490693
+Branching factor: 44.1129
+Best move: r2qrb1K/1p1b2p1/p2ppnQp/8/3NP3/1BN5/PPP4P/1K3RR1 b - -
+ r  .  .  q  r  b  .  k
+ .  p  .  b  .  .  p  .
+ p  .  .  p  p  n  Q  p
+ .  .  .  .  .  .  .  .
+ .  .  .  N  P  .  .  .
+ .  B  N  .  .  .  .  .
+ P  P  P  .  .  .  .  P
+ .  K  .  .  .  R  R  .
+Evaluation: 1.53
+
+---------------------------------------------
+
+Testing Position 5: 1r1bk2r/2R2ppp/p3p3/1b2P2q/4QP2/4N3/1B4PP/3R2K1 w k -
+ .  r  .  b  k  .  .  r
+ .  .  R  .  .  p  p  p
+ p  .  .  .  p  .  .  .
+ .  b  .  .  P  .  .  q
+ .  .  .  .  Q  P  .  .
+ .  .  .  .  N  .  .  .
+ .  B  .  .  .  .  P  P
+ .  .  .  R  .  .  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 65.7048 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 57
+Nodes at depth 2: 2042
+Nodes at depth 3: 103021
+Nodes at depth 4: 2090898
+Nodes at depth 5: 58771290
+Primary search total nodes: 60967309
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 59649052
+Total amount of nodes: 60967309
+Branching factor: 46.2484
+Best move: 1r1bK2r/2R2ppp/p3p3/1b2P2q/4QPP1/4N3/1B5P/3R2K1 b k g3
+ .  r  .  b  k  .  .  r
+ .  .  R  .  .  p  p  p
+ p  .  .  .  p  .  .  .
+ .  b  .  .  P  .  .  q
+ .  .  .  .  Q  P  P  .
+ .  .  .  .  N  .  .  .
+ .  B  .  .  .  .  .  P
+ .  .  .  R  .  .  K  .
+Evaluation: 2.93
+
+---------------------------------------------
+
+Testing Position 6: r3rbk1/ppq2ppp/2b1pB2/8/6Q1/1P1B3P/P1P2PP1/R2R2K1 w - -
+ r  .  .  .  r  b  k  .
+ p  p  q  .  .  p  p  p
+ .  .  b  .  p  B  .  .
+ .  .  .  .  .  .  .  .
+ .  .  .  .  .  .  Q  .
+ .  P  .  B  .  .  .  P
+ P  .  P  .  .  P  P  .
+ R  .  .  R  .  .  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 73.2008 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 52
+Nodes at depth 2: 2056
+Nodes at depth 3: 100125
+Nodes at depth 4: 2291683
+Nodes at depth 5: 66841750
+Primary search total nodes: 69235667
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 67736810
+Total amount of nodes: 69235667
+Branching factor: 46.1923
+Best move: r3rbK1/ppq2ppp/2b1pB2/7Q/8/1P1B3P/P1P2PP1/R2R2K1 b - -
+ r  .  .  .  r  b  k  .
+ p  p  q  .  .  p  p  p
+ .  .  b  .  p  B  .  .
+ .  .  .  .  .  .  .  Q
+ .  .  .  .  .  .  .  .
+ .  P  .  B  .  .  .  P
+ P  .  P  .  .  P  P  .
+ R  .  .  R  .  .  K  .
+Evaluation: 1.9
+
+---------------------------------------------
+
+Testing Position 7: r4r1k/4bppb/2n1p2p/p1n1P3/1p1p1BNP/3P1NP1/qP2QPB1/2RR2K1 w - -
+ r  .  .  .  .  r  .  k
+ .  .  .  .  b  p  p  b
+ .  .  n  .  p  .  .  p
+ p  .  n  .  P  .  .  .
+ .  p  .  p  .  B  N  P
+ .  .  .  P  .  N  P  .
+ q  P  .  .  Q  P  B  .
+ .  .  R  R  .  .  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 41.1472 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 36
+Nodes at depth 2: 1718
+Nodes at depth 3: 62574
+Nodes at depth 4: 1618607
+Nodes at depth 5: 34978544
+Primary search total nodes: 36661480
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 35685132
+Total amount of nodes: 36661480
+Branching factor: 37.5496
+Best move: r4r1K/4bppb/2n1p2p/p1n1P3/1p1p1BNP/3P2P1/qP2QPB1/2RRN1K1 b - -
+ r  .  .  .  .  r  .  k
+ .  .  .  .  b  p  p  b
+ .  .  n  .  p  .  .  p
+ p  .  n  .  P  .  .  .
+ .  p  .  p  .  B  N  P
+ .  .  .  P  .  .  P  .
+ q  P  .  .  Q  P  B  .
+ .  .  R  R  N  .  K  .
+Evaluation: 2.95
+
+---------------------------------------------
+
+Testing Position 8: r1b2rk1/1p1nbppp/pq1p4/3B4/P2NP3/2N1p3/1PP3PP/R2Q1R1K w - -
+ r  .  b  .  .  r  k  .
+ .  p  .  n  b  p  p  p
+ p  q  .  p  .  .  .  .
+ .  .  .  B  .  .  .  .
+ P  .  .  N  P  .  .  .
+ .  .  N  .  p  .  .  .
+ .  P  P  .  .  .  P  P
+ R  .  .  Q  .  R  .  K
+Primary search to depth: 5
+Time to create and traverse the search tree: 38.3368 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 48
+Nodes at depth 2: 1419
+Nodes at depth 3: 66765
+Nodes at depth 4: 1244212
+Nodes at depth 5: 34470250
+Primary search total nodes: 35782695
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 34989898
+Total amount of nodes: 35782695
+Branching factor: 45.1348
+Best move: r1b2rK1/1p1nbppp/pq1p4/3B4/P2NP3/2NQp3/1PP3PP/R4R1K b - -
+ r  .  b  .  .  r  k  .
+ .  p  .  n  b  p  p  p
+ p  q  .  p  .  .  .  .
+ .  .  .  B  .  .  .  .
+ P  .  .  N  P  .  .  .
+ .  .  N  Q  p  .  .  .
+ .  P  P  .  .  .  P  P
+ R  .  .  .  .  R  .  K
+Evaluation: 1.29
+
+---------------------------------------------
+
+Testing Position 9: r1b3k1/p2p1nP1/2pqr1Rp/1p2p2P/2B1PnQ1/1P6/P1PP4/1K4R1 w - -
+ r  .  b  .  .  .  k  .
+ p  .  .  p  .  n  P  .
+ .  .  p  q  r  .  R  p
+ .  p  .  .  p  .  .  P
+ .  .  B  .  P  n  Q  .
+ .  P  .  .  .  .  .  .
+ P  .  P  P  .  .  .  .
+ .  K  .  .  .  .  R  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 21.521 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 37
+Nodes at depth 2: 1233
+Nodes at depth 3: 45627
+Nodes at depth 4: 884242
+Nodes at depth 5: 19436600
+Primary search total nodes: 20367740
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 19801108
+Total amount of nodes: 20367740
+Branching factor: 35.9453
+Best move: r1b3K1/p2p1nP1/2pqB1Rp/1p2p2P/4PnQ1/1P6/P1PP4/1K4R1 b - -
+ r  .  b  .  .  .  k  .
+ p  .  .  p  .  n  P  .
+ .  .  p  q  B  .  R  p
+ .  p  .  .  p  .  .  P
+ .  .  .  .  P  n  Q  .
+ .  P  .  .  .  .  .  .
+ P  .  P  P  .  .  .  .
+ .  K  .  .  .  .  R  .
+Evaluation: -0.09
+
+---------------------------------------------
+
+Testing Position 10: 8/kp5p/p4p2/P3p1p1/1Pb1P1P1/2P1b2P/3rN3/4RK2 w - -
+ .  .  .  .  .  .  .  .
+ k  p  .  .  .  .  .  p
+ p  .  .  .  .  p  .  .
+ P  .  .  .  p  .  p  .
+ .  P  b  .  P  .  P  .
+ .  .  P  .  b  .  .  P
+ .  .  .  r  N  .  .  .
+ .  .  .  .  R  K  .  .
+Primary search to depth: 7
+Time to create and traverse the search tree: 64.8573 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 7
+Nodes at depth 2: 232
+Nodes at depth 3: 2598
+Nodes at depth 4: 68988
+Nodes at depth 5: 862202
+Nodes at depth 6: 7095894
+Nodes at depth 7: 49877763
+Primary search total nodes: 57907685
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 54297511
+Total amount of nodes: 57907685
+Branching factor: 16.0401
+Best move: 8/Kp5p/p4p2/PP2p1p1/2b1P1P1/2P1b2P/3rN3/4RK2 b - -
+ .  .  .  .  .  .  .  .
+ k  p  .  .  .  .  .  p
+ p  .  .  .  .  p  .  .
+ P  P  .  .  p  .  p  .
+ .  .  b  .  P  .  P  .
+ .  .  P  .  b  .  .  P
+ .  .  .  r  N  .  .  .
+ .  .  .  .  R  K  .  .
+Evaluation: -5.47
+
+---------------------------------------------
+
+Testing Position 11: 6kb/4p3/3p2P1/2p2P2/1p2P1P1/3P4/1QPq4/K1R5 w - -
+ .  .  .  .  .  .  k  b
+ .  .  .  .  p  .  .  .
+ .  .  .  p  .  .  P  .
+ .  .  p  .  .  P  .  .
+ .  p  .  .  P  .  P  .
+ .  .  .  P  .  .  .  .
+ .  Q  P  q  .  .  .  .
+ K  .  R  .  .  .  .  .
+Primary search to depth: 6
+Time to create and traverse the search tree: 18.7559 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 21
+Nodes at depth 2: 483
+Nodes at depth 3: 9560
+Nodes at depth 4: 184998
+Nodes at depth 5: 1593690
+Nodes at depth 6: 16106493
+Primary search total nodes: 17895246
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 17068792
+Total amount of nodes: 17895246
+Branching factor: 21.653
+Best move: 6Kb/4p3/3p2P1/2p2P2/1p2P1P1/2PP4/1Q1q4/K1R5 b - -
+ .  .  .  .  .  .  k  b
+ .  .  .  .  p  .  .  .
+ .  .  .  p  .  .  P  .
+ .  .  p  .  .  P  .  .
+ .  p  .  .  P  .  P  .
+ .  .  P  P  .  .  .  .
+ .  Q  .  q  .  .  .  .
+ K  .  R  .  .  .  .  .
+Evaluation: 0.5
+
+---------------------------------------------
+
+Testing Position 12: r2q1rk1/4bppp/p2p4/2pP4/3pP3/3Q4/PP1B1PPP/R3R1K1 w - -
+ r  .  .  q  .  r  k  .
+ .  .  .  .  b  p  p  p
+ p  .  .  p  .  .  .  .
+ .  .  p  P  .  .  .  .
+ .  .  .  p  P  .  .  .
+ .  .  .  Q  .  .  .  .
+ P  P  .  B  .  P  P  P
+ R  .  .  .  R  .  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 20.443 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 45
+Nodes at depth 2: 1054
+Nodes at depth 3: 44374
+Nodes at depth 4: 724954
+Nodes at depth 5: 18104689
+Primary search total nodes: 18875117
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 18393817
+Total amount of nodes: 18875117
+Branching factor: 39.2169
+Best move: r2q1rK1/4bppp/p2p4/2pP4/3pP3/3Q4/PP1B1PPP/3RR1K1 b - -
+ r  .  .  q  .  r  k  .
+ .  .  .  .  b  p  p  p
+ p  .  .  p  .  .  .  .
+ .  .  p  P  .  .  .  .
+ .  .  .  p  P  .  .  .
+ .  .  .  Q  .  .  .  .
+ P  P  .  B  .  P  P  P
+ .  .  .  R  R  .  K  .
+Evaluation: 1.89
+
+---------------------------------------------
+
+Testing Position 13: rnb2r1k/pp2p2p/2pp2p1/q2P1p2/8/1Pb2NP1/PB2PPBP/R2Q1RK1 w - -
+ r  n  b  .  .  r  .  k
+ p  p  .  .  p  .  .  p
+ .  .  p  p  .  .  p  .
+ q  .  .  P  .  p  .  .
+ .  .  .  .  .  .  .  .
+ .  P  b  .  .  N  P  .
+ P  B  .  .  P  P  B  P
+ R  .  .  Q  .  R  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 20.6208 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 31
+Nodes at depth 2: 1118
+Nodes at depth 3: 36445
+Nodes at depth 4: 855397
+Nodes at depth 5: 17548499
+Primary search total nodes: 18441491
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 17900966
+Total amount of nodes: 18441491
+Branching factor: 34.1177
+Best move: rnb2r1K/pp2p2p/2pp2p1/q2P1p2/8/1Pb2NP1/PB1QPPBP/R4RK1 b - -
+ r  n  b  .  .  r  .  k
+ p  p  .  .  p  .  .  p
+ .  .  p  p  .  .  p  .
+ q  .  .  P  .  p  .  .
+ .  .  .  .  .  .  .  .
+ .  P  b  .  .  N  P  .
+ P  B  .  Q  P  P  B  P
+ R  .  .  .  .  R  K  .
+Evaluation: 4.01
+
+---------------------------------------------
+
+Testing Position 14: 2r3k1/1p2q1pp/2b1pr2/p1pp4/6Q1/1P1PP1R1/P1PN2PP/5RK1 w - -
+ .  .  r  .  .  .  k  .
+ .  p  .  .  q  .  p  p
+ .  .  b  .  p  r  .  .
+ p  .  p  p  .  .  .  .
+ .  .  .  .  .  .  Q  .
+ .  P  .  P  P  .  R  .
+ P  .  P  N  .  .  P  P
+ .  .  .  .  .  R  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 33.8394 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 43
+Nodes at depth 2: 1574
+Nodes at depth 3: 61960
+Nodes at depth 4: 1331560
+Nodes at depth 5: 29902168
+Primary search total nodes: 31297306
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 30461416
+Total amount of nodes: 31297306
+Branching factor: 37.4419
+Best move: 2r3K1/1p2q1Qp/2b1pr2/p1pp4/8/1P1PP1R1/P1PN2PP/5RK1 b - -
+ .  .  r  .  .  .  k  .
+ .  p  .  .  q  .  Q  p
+ .  .  b  .  p  r  .  .
+ p  .  p  p  .  .  .  .
+ .  .  .  .  .  .  .  .
+ .  P  .  P  P  .  R  .
+ P  .  P  N  .  .  P  P
+ .  .  .  .  .  R  K  .
+Evaluation: 1.09
+
+---------------------------------------------
+
+Testing Position 15: 3rn2k/ppb2rpp/2ppqp2/5N2/2P1P3/1P5Q/PB3PPP/3RR1K1 w - -
+ .  .  .  r  n  .  .  k
+ p  p  b  .  .  r  p  p
+ .  .  p  p  q  p  .  .
+ .  .  .  .  .  N  .  .
+ .  .  P  .  P  .  .  .
+ .  P  .  .  .  .  .  Q
+ P  B  .  .  .  P  P  P
+ .  .  .  R  R  .  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 36.7496 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 47
+Nodes at depth 2: 1364
+Nodes at depth 3: 62363
+Nodes at depth 4: 1133624
+Nodes at depth 5: 33676500
+Primary search total nodes: 34873899
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 34070776
+Total amount of nodes: 34873899
+Branching factor: 43.4229
+Best move: 3rn2K/ppb2rpp/2ppqp2/5N2/2P1P3/1PQ5/PB3PPP/3RR1K1 b - -
+ .  .  .  r  n  .  .  k
+ p  p  b  .  .  r  p  p
+ .  .  p  p  q  p  .  .
+ .  .  .  .  .  N  .  .
+ .  .  P  .  P  .  .  .
+ .  P  Q  .  .  .  .  .
+ P  B  .  .  .  P  P  P
+ .  .  .  R  R  .  K  .
+Evaluation: 2.59
+
+---------------------------------------------
+
+Testing Position 16: 4b3/p3kp2/6p1/3pP2p/2pP1P2/4K1P1/P3N2P/8 w - -
+ .  .  .  .  b  .  .  .
+ p  .  .  .  k  p  .  .
+ .  .  .  .  .  .  p  .
+ .  .  .  p  P  .  .  p
+ .  .  p  P  .  P  .  .
+ .  .  .  .  K  .  P  .
+ P  .  .  .  N  .  .  P
+ .  .  .  .  .  .  .  .
+Primary search to depth: 7
+Time to create and traverse the search tree: 14.0509 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 13
+Nodes at depth 2: 195
+Nodes at depth 3: 2708
+Nodes at depth 4: 30775
+Nodes at depth 5: 319111
+Nodes at depth 6: 1872668
+Nodes at depth 7: 11343514
+Primary search total nodes: 13568985
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 12632840
+Total amount of nodes: 13568985
+Branching factor: 14.4945
+Best move: 4b3/p3Kp2/6p1/3pP2p/2pP1P2/2N1K1P1/P6P/8 b - -
+ .  .  .  .  b  .  .  .
+ p  .  .  .  k  p  .  .
+ .  .  .  .  .  .  p  .
+ .  .  .  p  P  .  .  p
+ .  .  p  P  .  P  .  .
+ .  .  N  .  K  .  P  .
+ P  .  .  .  .  .  .  P
+ .  .  .  .  .  .  .  .
+Evaluation: 0.72
+
+---------------------------------------------
+
+Testing Position 17: 2r3k1/pppR1pp1/4p3/4P1P1/5P2/1P4K1/P1P5/8 w - -
+ .  .  r  .  .  .  k  .
+ p  p  p  R  .  p  p  .
+ .  .  .  .  p  .  .  .
+ .  .  .  .  P  .  P  .
+ .  .  .  .  .  P  .  .
+ .  P  .  .  .  .  K  .
+ P  .  P  .  .  .  .  .
+ .  .  .  .  .  .  .  .
+Primary search to depth: 6
+Time to create and traverse the search tree: 10.0084 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 24
+Nodes at depth 2: 391
+Nodes at depth 3: 9223
+Nodes at depth 4: 108669
+Nodes at depth 5: 1367732
+Nodes at depth 6: 8178991
+Primary search total nodes: 9665031
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 9075666
+Total amount of nodes: 9665031
+Branching factor: 16.3991
+Best move: 2r3K1/pppR1pp1/4p3/4P1P1/5PK1/1P6/P1P5/8 b - -
+ .  .  r  .  .  .  k  .
+ p  p  p  R  .  p  p  .
+ .  .  .  .  p  .  .  .
+ .  .  .  .  P  .  P  .
+ .  .  .  .  .  P  K  .
+ .  P  .  .  .  .  .  .
+ P  .  P  .  .  .  .  .
+ .  .  .  .  .  .  .  .
+Evaluation: 0.75
+
+---------------------------------------------
+
+Testing Position 18: 1nk1r1r1/pp2n1pp/4p3/q2pPp1N/b1pP1P2/B1P2R2/2P1B1PP/R2Q2K1 w - -
+ .  n  k  .  r  .  r  .
+ p  p  .  .  n  .  p  p
+ .  .  .  .  p  .  .  .
+ q  .  .  p  P  p  .  N
+ b  .  p  P  .  P  .  .
+ B  .  P  .  .  R  .  .
+ .  .  P  .  B  .  P  P
+ R  .  .  Q  .  .  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 16.2744 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 34
+Nodes at depth 2: 1057
+Nodes at depth 3: 36334
+Nodes at depth 4: 689462
+Nodes at depth 5: 14266316
+Primary search total nodes: 14993204
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 14559671
+Total amount of nodes: 14993204
+Branching factor: 34.5838
+Best move: 1nK1r1r1/pp2B1pp/4p3/q2pPp1N/b1pP1P2/2P2R2/2P1B1PP/R2Q2K1 b - -
+ .  n  k  .  r  .  r  .
+ p  p  .  .  B  .  p  p
+ .  .  .  .  p  .  .  .
+ q  .  .  p  P  p  .  N
+ b  .  p  P  .  P  .  .
+ .  .  P  .  .  R  .  .
+ .  .  P  .  B  .  P  P
+ R  .  .  Q  .  .  K  .
+Evaluation: 2.6
+
+---------------------------------------------
+
+Testing Position 19: r1b2rk1/2q1b1pp/p2ppn2/1p6/3QP3/1BN1B3/PPP3PP/R4RK1 w - -
+ r  .  b  .  .  r  k  .
+ .  .  q  .  b  .  p  p
+ p  .  .  p  p  n  .  .
+ .  p  .  .  .  .  .  .
+ .  .  .  Q  P  .  .  .
+ .  B  N  .  B  .  .  .
+ P  P  P  .  .  .  P  P
+ R  .  .  .  .  R  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 55.8611 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 51
+Nodes at depth 2: 1705
+Nodes at depth 3: 84506
+Nodes at depth 4: 1735657
+Nodes at depth 5: 50303738
+Primary search total nodes: 52125658
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 51010887
+Total amount of nodes: 52125658
+Branching factor: 46.7591
+Best move: r1b2rK1/2q1b1pp/pQ1ppn2/1p6/4P3/1BN1B3/PPP3PP/R4RK1 b - -
+ r  .  b  .  .  r  k  .
+ .  .  q  .  b  .  p  p
+ p  Q  .  p  p  n  .  .
+ .  p  .  .  .  .  .  .
+ .  .  .  .  P  .  .  .
+ .  B  N  .  B  .  .  .
+ P  P  P  .  .  .  P  P
+ R  .  .  .  .  R  K  .
+Evaluation: 3.59
+
+---------------------------------------------
+
+Testing Position 20: r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq -
+ r  .  .  .  k  .  .  r
+ p  .  p  p  q  p  b  .
+ b  n  .  .  p  n  p  .
+ .  .  .  P  N  .  .  .
+ .  p  .  .  P  .  .  .
+ .  .  N  .  .  Q  .  p
+ P  P  P  B  B  P  P  P
+ R  .  .  .  K  .  .  R
+Primary search to depth: 5
+Time to create and traverse the search tree: 77.0109 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 48
+Nodes at depth 2: 2039
+Nodes at depth 3: 97862
+Nodes at depth 4: 2459469
+Nodes at depth 5: 68964804
+Primary search total nodes: 71524223
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 69998607
+Total amount of nodes: 71524223
+Branching factor: 46.8822
+Best move: r3K2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq -
+ r  .  .  .  k  .  .  r
+ p  .  p  p  q  p  b  .
+ b  n  .  .  P  n  p  .
+ .  .  .  .  N  .  .  .
+ .  p  .  .  P  .  .  .
+ .  .  N  .  .  Q  .  p
+ P  P  P  B  B  P  P  P
+ R  .  .  .  K  .  .  R
+Evaluation: 3.38
+
+---------------------------------------------
+
+Testing Position 21: r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - -
+ r  .  .  .  .  r  k  .
+ .  p  p  .  q  p  p  p
+ p  .  n  p  .  n  .  .
+ .  .  b  .  p  .  B  .
+ .  .  B  .  P  .  b  .
+ P  .  N  P  .  N  .  .
+ .  P  P  .  Q  P  P  P
+ R  .  .  .  .  R  K  .
+Primary search to depth: 5
+Time to create and traverse the search tree: 64.9353 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 46
+Nodes at depth 2: 2079
+Nodes at depth 3: 89890
+Nodes at depth 4: 2258900
+Nodes at depth 5: 55625827
+Primary search total nodes: 57976743
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 56589786
+Total amount of nodes: 57976743
+Branching factor: 41.8014
+Best move: r4rK1/1pp1qppp/p1np1n2/2bNp1B1/2B1P1b1/P2P1N2/1PP1QPPP/R4RK1 b - -
+ r  .  .  .  .  r  k  .
+ .  p  p  .  q  p  p  p
+ p  .  n  p  .  n  .  .
+ .  .  b  N  p  .  B  .
+ .  .  B  .  P  .  b  .
+ P  .  .  P  .  N  .  .
+ .  P  P  .  Q  P  P  P
+ R  .  .  .  .  R  K  .
+Evaluation: 1.92
+
+---------------------------------------------
+
+Testing Position 22: r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq -
+ r  .  .  .  k  .  .  r
+ P  p  p  p  .  p  p  p
+ .  b  .  .  .  n  b  N
+ n  P  .  .  .  .  .  .
+ B  B  P  .  P  .  .  .
+ q  .  .  .  .  N  .  .
+ P  p  .  P  .  .  P  P
+ R  .  .  Q  .  R  K  .
+Primary search to depth: 6
+Time to create and traverse the search tree: 288.034 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 6
+Nodes at depth 2: 264
+Nodes at depth 3: 9467
+Nodes at depth 4: 404703
+Nodes at depth 5: 9494258
+Nodes at depth 6: 252109570
+Primary search total nodes: 262018269
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 256105482
+Total amount of nodes: 262018269
+Branching factor: 44.3138
+Best move: r3K2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1R1K b kq -
+ r  .  .  .  k  .  .  r
+ P  p  p  p  .  p  p  p
+ .  b  .  .  .  n  b  N
+ n  P  .  .  .  .  .  .
+ B  B  P  .  P  .  .  .
+ q  .  .  .  .  N  .  .
+ P  p  .  P  .  .  P  P
+ R  .  .  Q  .  R  .  K
+Evaluation: -6.06
+
+---------------------------------------------
+
+Testing Position 23: 3r1k2/4npp1/1ppr3p/p6P/P2PPPP1/1NR5/5K2/2R5 w - -
+ .  .  .  r  .  k  .  .
+ .  .  .  .  n  p  p  .
+ .  p  p  r  .  .  .  p
+ p  .  .  .  .  .  .  P
+ P  .  .  P  P  P  P  .
+ .  N  R  .  .  .  .  .
+ .  .  .  .  .  K  .  .
+ .  .  R  .  .  .  .  .
+Primary search to depth: 6
+Time to create and traverse the search tree: 67.5147 seconds
+Primary search:
+Nodes at depth 0: 1
+Nodes at depth 1: 33
+Nodes at depth 2: 793
+Nodes at depth 3: 26013
+Nodes at depth 4: 424443
+Nodes at depth 5: 6618261
+Nodes at depth 6: 56929281
+Primary search total nodes: 63998825
+Quiescence search:
+Quiescence search total nodes: 0
+Leafnodes: 61409907
+Total amount of nodes: 63998825
+Branching factor: 24.7203
+Best move: 3r1K2/4npp1/1ppr3p/p5PP/P2PPP2/1NR5/5K2/2R5 b - -
+ .  .  .  r  .  k  .  .
+ .  .  .  .  n  p  p  .
+ .  p  p  r  .  .  .  p
+ p  .  .  .  .  .  P  P
+ P  .  .  P  P  P  .  .
+ .  N  R  .  .  .  .  .
+ .  .  .  .  .  K  .  .
+ .  .  R  .  .  .  .  .
+Evaluation: -0.71
+
+---------------------------------------------
+
+Nodes for position 0:   54662462
+Nodes for position 1:   40001338
+Nodes for position 2:   41590837
+Nodes for position 3:   43674926
+Nodes for position 4:   29490693
+Nodes for position 5:   60967309
+Nodes for position 6:   69235667
+Nodes for position 7:   36661480
+Nodes for position 8:   35782695
+Nodes for position 9:   20367740
+Nodes for position 10:  57907685
+Nodes for position 11:  17895246
+Nodes for position 12:  18875117
+Nodes for position 13:  18441491
+Nodes for position 14:  31297306
+Nodes for position 15:  34873899
+Nodes for position 16:  13568985
+Nodes for position 17:  9665031
+Nodes for position 18:  14993204
+Nodes for position 19:  52125658
+Nodes for position 20:  71524223
+Nodes for position 21:  57976743
+Nodes for position 22:  262018269
+Nodes for position 23:  63998825
+
+Total nodes: 1157596829
+
+Quiescencenodes for position 0:         0
+Quiescencenodes for position 1:         0
+Quiescencenodes for position 2:         0
+Quiescencenodes for position 3:         0
+Quiescencenodes for position 4:         0
+Quiescencenodes for position 5:         0
+Quiescencenodes for position 6:         0
+Quiescencenodes for position 7:         0
+Quiescencenodes for position 8:         0
+Quiescencenodes for position 9:         0
+Quiescencenodes for position 10:        0
+Quiescencenodes for position 11:        0
+Quiescencenodes for position 12:        0
+Quiescencenodes for position 13:        0
+Quiescencenodes for position 14:        0
+Quiescencenodes for position 15:        0
+Quiescencenodes for position 16:        0
+Quiescencenodes for position 17:        0
+Quiescencenodes for position 18:        0
+Quiescencenodes for position 19:        0
+Quiescencenodes for position 20:        0
+Quiescencenodes for position 21:        0
+Quiescencenodes for position 22:        0
+Quiescencenodes for position 23:        0
+
+Total quiescencenodes: 0
+
+Leafnodes for position 0:       53490672
+Leafnodes for position 1:       39031081
+Leafnodes for position 2:       40551869
+Leafnodes for position 3:       42662200
+Leafnodes for position 4:       28822165
+Leafnodes for position 5:       59649052
+Leafnodes for position 6:       67736810
+Leafnodes for position 7:       35685132
+Leafnodes for position 8:       34989898
+Leafnodes for position 9:       19801108
+Leafnodes for position 10:      54297511
+Leafnodes for position 11:      17068792
+Leafnodes for position 12:      18393817
+Leafnodes for position 13:      17900966
+Leafnodes for position 14:      30461416
+Leafnodes for position 15:      34070776
+Leafnodes for position 16:      12632840
+Leafnodes for position 17:      9075666
+Leafnodes for position 18:      14559671
+Leafnodes for position 19:      51010887
+Leafnodes for position 20:      69998607
+Leafnodes for position 21:      56589786
+Leafnodes for position 22:      256105482
+Leafnodes for position 23:      61409907
+
+Total leafnodes: 1125996111
+
+Branching factor for position 0:        46.6487
+Branching factor for position 1:        41.2276
+Branching factor for position 2:        40.0309
+Branching factor for position 3:        43.1261
+Branching factor for position 4:        44.1129
+Branching factor for position 5:        46.2484
+Branching factor for position 6:        46.1923
+Branching factor for position 7:        37.5496
+Branching factor for position 8:        45.1348
+Branching factor for position 9:        35.9453
+Branching factor for position 10:       16.0401
+Branching factor for position 11:       21.653
+Branching factor for position 12:       39.2169
+Branching factor for position 13:       34.1177
+Branching factor for position 14:       37.4419
+Branching factor for position 15:       43.4229
+Branching factor for position 16:       14.4945
+Branching factor for position 17:       16.3991
+Branching factor for position 18:       34.5838
+Branching factor for position 19:       46.7591
+Branching factor for position 20:       46.8822
+Branching factor for position 21:       41.8014
+Branching factor for position 22:       44.3138
+Branching factor for position 23:       24.7203
+
+Average branching factor: 37.0026
+
+My eval pos 0: 1.94 vs 4.5
+My eval pos 1: -0.17 vs 6.2
+My eval pos 2: 0.8 vs 2.8
+My eval pos 3: 3.34 vs 4.5
+My eval pos 4: 1.53 vs 5.3
+My eval pos 5: 2.93 vs 5.1
+My eval pos 6: 1.9 vs 0.4
+My eval pos 7: 2.95 vs 2.1
+My eval pos 8: 1.29 vs 2.9
+My eval pos 9: -0.09 vs 0
+My eval pos 10: -5.47 vs -14.9
+My eval pos 11: 0.5 vs 0
+My eval pos 12: 1.89 vs 0.8
+My eval pos 13: 4.01 vs 7.1
+My eval pos 14: 1.09 vs 1.5
+My eval pos 15: 2.59 vs 4.5
+My eval pos 16: 0.72 vs 0.7
+My eval pos 17: 0.75 vs 2.9
+My eval pos 18: 2.6 vs 1.7
+My eval pos 19: 3.59 vs 2.2
+My eval pos 20: 3.38 vs 1
+My eval pos 21: 1.92 vs 3.2
+My eval pos 22: -6.06 vs -7.5
+My eval pos 23: -0.71 vs 2.7
+
+Average difference: 2.145
+
+Time for position 0:    61.9479
+Time for position 1:    44.4088
+Time for position 2:    47.0062
+Time for position 3:    49.1541
+Time for position 4:    32.5585
+Time for position 5:    65.705
+Time for position 6:    73.2011
+Time for position 7:    41.1474
+Time for position 8:    38.3373
+Time for position 9:    21.5212
+Time for position 10:   64.8575
+Time for position 11:   18.7561
+Time for position 12:   20.4432
+Time for position 13:   20.621
+Time for position 14:   33.8397
+Time for position 15:   36.7498
+Time for position 16:   14.0511
+Time for position 17:   10.0088
+Time for position 18:   16.2747
+Time for position 19:   55.8613
+Time for position 20:   77.0111
+Time for position 21:   64.9355
+Time for position 22:   288.034
+Time for position 23:   67.515
+Total time:  1263.95
+
+---------------------------------------------
+Tests ended
+---------------------------------------------

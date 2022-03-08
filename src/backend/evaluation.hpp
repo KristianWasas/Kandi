@@ -4,12 +4,12 @@
 #include "lookuptable.hpp"
 #include "testing/tests.hpp"
 
-int evaluation(bitBoard board){
+int32_t evaluation(bitBoard board){
 
     const int gamePhase = __builtin_popcountll(board.wQ | board.bQ) * 4 + __builtin_popcountll(board.wR |board.bR) * 2 + __builtin_popcountll(board.wH | board.bH | board.wB | board.bB);
 
-    int mgEval = 0;
-    int egEval = 0;
+    int32_t mgEval = 0;
+    int32_t egEval = 0;
     
     uint64_t onePiece = board.wP & ~(board.wP - 1);         //Variable to isolate one piece at a time and give an evaluation for said piece 
     //Eval pawns
@@ -92,6 +92,6 @@ int evaluation(bitBoard board){
     mgEval = mgEval - mg_king_table_b[63 - __builtin_ctzll(board.bK)];           //Note kings have separate mg tables for colors, since they are mirrored
     egEval = egEval - eg_king_table_w[63 - __builtin_ctzll(board.bK)];      
 
-    int finalEval = (mgEval * gamePhase + egEval * (24 - gamePhase))/24;
+    int32_t finalEval = (mgEval * gamePhase + egEval * (24 - gamePhase))/24;
     return finalEval;
 }

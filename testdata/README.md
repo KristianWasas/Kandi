@@ -13,6 +13,11 @@ Each folder has a file with
 
 Each datax.text contains the data of done on X unique positions for that version of the algorithm
 
+data1.text has searches to depth CONST + 0
+data2.text has searches to depth CONST + 2 
+
+CONST varies from position to position
+
     1 - Total amount of nodes
         a - Nodes at each depth in the primary search
         b - Nodes at each depth in the quiescence search
@@ -29,7 +34,7 @@ The dataX.text files, the X stands for a certain depth, if two files are datax.t
 but if there is dataX.text and dataY.text, they have differing primary search depths, this is standard across all verions
 
 Each versionX is built upon a previous implementation, ie. version2.x is version 1.0 with a-b pruning implemented
-version3.x is version2.0 with quiescence search implemented. version4.x is version3.0 with null move pruning
+version3.x has transposition table implemented.
 
-The choice on which to version to build upon, is done by analyzing the data results, time and tree size being the 
-main concerns.
+Finally we will start combining the best version of each algorithm and end up with a algorithm 
+which will have ab, null move, TT, and quiescence search

@@ -3,7 +3,7 @@
 #include "testState.hpp"
 
 TestState::TestState(sf::RenderWindow* win) : State(win){
-
+    initializeZValues();            //Initialize zobrist hash values
     loadPosition = new Button(560/2-100, 100, 200, 50, "Load position", 16, sf::Color::Red, sf::Color::Green, sf::Color::Green);
     perftPosition = new Button(560/2-100, 200, 200, 50, "Perft position", 16, sf::Color::Red, sf::Color::Green, sf::Color::Green);
     testAll = new Button(560/2-100, 300, 200, 50, "Test all", 16, sf::Color::Red, sf::Color::Green, sf::Color::Green);
@@ -54,7 +54,7 @@ void TestState::updateState(){
     }
     if(perftPosition->activated && buttonTimer > 0.5){
         
-        if(PERFT_DEBUG){    //For debugging
+        #if PERFT_DEBUG    //For debugging
             resetTestData();
             vector<bitBoard> a;
             generateWhiteMoves(position, a);
@@ -62,7 +62,9 @@ void TestState::updateState(){
                 drawMove(position, i, true);
                 cout << perft(i, 0, currentDepthValue-1, false) << endl;
             }
-        }
+        #endif
+    
+        cout << table.count(0LL) << "\n";
 
         resetTestData();
         std::cout << "Position: " << FENposition <<"\n";

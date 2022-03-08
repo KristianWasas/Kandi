@@ -8,7 +8,8 @@ Lukuun ottamatta paria lookuptablen osaa, kaikki on itse koodattu.
 Vaiheessa vielä
 
 ATM on:
-- Backend, toimiva siirtogeneraattori ja evaluointi funktio, myös minimax hakualgoritmi ja tarvittavat apu funktiot bitBoardin käsittelyyn, toimii itsessään
+- Backend, toimiva siirtogeneraattori ja evaluointi funktio, myös minimax hakualgoritmi ja tarvittavat apu funktiot bitBoardin käsittelyyn, toimii itsessään,
+myös transpositiontable on implementoitu backendiin (EI NOPEASTI, HUONO IMPLEMENTOITNTI)
 - Game, siellä on vain itse shakin pelaamisen tarvittavat koodit, Kandiin turha, mutta jos haluu pelata shakkia antaa mennä, AI implementoitu myös chessAI kohdassa 
 - GUI, siellä on ite SFML rajapinta ja kaikki tarvittava peli ikkunalle yms.
 - Testing, Itse kandi data keruuta varten

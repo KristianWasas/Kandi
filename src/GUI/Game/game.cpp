@@ -19,6 +19,9 @@ Game::Game(int difficulty, bool aiCol){
 
     board = FENtoBitBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     createPieces(board, pieces);
+
+    //Initialize zobrist hash values 
+    initializeZValues();
 }
 
 Game::~Game(){
@@ -103,7 +106,7 @@ void Game::update(sf::Vector2i mouse){
         uint64_t placeholderBlackPieces = board.bP|board.bH|board.bB|board.bR|board.bQ|board.bK;
 
         time.restart();
-        board = chessAI(board, diff, aiColour);
+        board = chessAI(board, diff, whiteTurn);
         cout << "The AI used " << time.restart().asSeconds() << " seconds to move\n";
 
         for(Piece* i : pieces){

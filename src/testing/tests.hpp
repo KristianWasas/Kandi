@@ -3,24 +3,26 @@
 #include "backend/movegenerator.hpp"
 #include "backend/minimax.hpp"
 #include "backend/chessAI.hpp"
+#include "backend/transpositiontable.hpp"
 #include <string>
 
 #define PERFT_DEBUG false
 
 //Values for checkmates
-#define INF (int)(99999999)
+#define INF (int32_t)(999999)
 #define NEGINF -INF
+#define X 0         //Extra serach depth
 
 //Global containers for storing data about tree structure
 static uint64_t nodesAtDepth[20] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-static uint64_t quiescenceNodesAtDepth[40] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+static uint64_t quiescenceNodesAtDepth[80] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 static uint64_t leafNodes = 0;
-static std::pair<bitBoard, int> bestMove;
+static std::pair<bitBoard, int32_t> bestMove;
 
 using namespace std;
 
 //Need to initialize, source is in minimax.hpp
-int minimax(bitBoard&, uint32_t, bool, uint8_t, int, int);
+int32_t minimax(bitBoard&, uint8_t, bool, uint8_t, int32_t, int32_t);
 
 //Used to debug move generator
 uint64_t perft(bitBoard& board, int currentDepth, int maxDepth, bool whiteTurn){
@@ -139,39 +141,36 @@ void testAllminimax(){
     List of positions in FEN and the depth the primary search runs to:
     */
 
-    int x = 0;
-
     vector<float> testInputTrueEvals = {4.5, 6.2, 2.8, 4.5, 5.3, 5.1, 0.4, 2.1, 2.9, 0, -14.9, 0, 0.8,
                                         7.1, 1.5, 4.5, 0.7, 2.9, 1.7, 2.2, 1.0, 3.2, -7.5, 2.7};
 
     vector<pair<string, int>> testInputs = {
-        {"r3qb1k/1b4p1/p2pr2p/3n4/Pnp1N1N1/6RP/1B3PP1/1B1QR1K1 w - -",              5+x},
-        {"r4rk1/pp1n1p1p/1nqP2p1/2b1P1B1/4NQ2/1B3P2/PP2K2P/2R5 w - -",              5+x},
-        {"r2qk2r/ppp1b1pp/2n1p3/3pP1n1/3P2b1/2PB1NN1/PP4PP/R1BQK2R w KQkq -",       5+x},
-        {"r1b1kb1r/1p1n1ppp/p2ppn2/6BB/2qNP3/2N5/PPP2PPP/R2Q1RK1 w kq -",           5+x},
-        {"r2qrb1k/1p1b2p1/p2ppn1p/8/3NP3/1BN5/PPP3QP/1K3RR1 w - -",                 5+x},
-        {"1r1bk2r/2R2ppp/p3p3/1b2P2q/4QP2/4N3/1B4PP/3R2K1 w k -",                   5+x},
-        {"r3rbk1/ppq2ppp/2b1pB2/8/6Q1/1P1B3P/P1P2PP1/R2R2K1 w - -",                 5+x},
+        {"r3qb1k/1b4p1/p2pr2p/3n4/Pnp1N1N1/6RP/1B3PP1/1B1QR1K1 w - -",              5+X},
+        {"r4rk1/pp1n1p1p/1nqP2p1/2b1P1B1/4NQ2/1B3P2/PP2K2P/2R5 w - -",              5+X},
+        {"r2qk2r/ppp1b1pp/2n1p3/3pP1n1/3P2b1/2PB1NN1/PP4PP/R1BQK2R w KQkq -",       5+X},
+        {"r1b1kb1r/1p1n1ppp/p2ppn2/6BB/2qNP3/2N5/PPP2PPP/R2Q1RK1 w kq -",           5+X},
+        {"r2qrb1k/1p1b2p1/p2ppn1p/8/3NP3/1BN5/PPP3QP/1K3RR1 w - -",                 5+X},
+        {"1r1bk2r/2R2ppp/p3p3/1b2P2q/4QP2/4N3/1B4PP/3R2K1 w k -",                   5+X},
+        {"r3rbk1/ppq2ppp/2b1pB2/8/6Q1/1P1B3P/P1P2PP1/R2R2K1 w - -",                 5+X},
+        {"r4r1k/4bppb/2n1p2p/p1n1P3/1p1p1BNP/3P1NP1/qP2QPB1/2RR2K1 w - -",          5+X},
+        {"r1b2rk1/1p1nbppp/pq1p4/3B4/P2NP3/2N1p3/1PP3PP/R2Q1R1K w - -",             5+X},
+        {"r1b3k1/p2p1nP1/2pqr1Rp/1p2p2P/2B1PnQ1/1P6/P1PP4/1K4R1 w - -",             5+X},
 
-        {"r4r1k/4bppb/2n1p2p/p1n1P3/1p1p1BNP/3P1NP1/qP2QPB1/2RR2K1 w - -",          5+x},
-        {"r1b2rk1/1p1nbppp/pq1p4/3B4/P2NP3/2N1p3/1PP3PP/R2Q1R1K w - -",             5+x},
-        {"r1b3k1/p2p1nP1/2pqr1Rp/1p2p2P/2B1PnQ1/1P6/P1PP4/1K4R1 w - -",             5+x},
-        {"8/kp5p/p4p2/P3p1p1/1Pb1P1P1/2P1b2P/3rN3/4RK2 w - -",                      7+x},   //Hor pos 10
-        {"6kb/4p3/3p2P1/2p2P2/1p2P1P1/3P4/1QPq4/K1R5 w - -",                        6+x},   //Hor pos 11
-        {"r2q1rk1/4bppp/p2p4/2pP4/3pP3/3Q4/PP1B1PPP/R3R1K1 w - -",                  5+x},
+        {"8/kp5p/p4p2/P3p1p1/1Pb1P1P1/2P1b2P/3rN3/4RK2 w - -",                      7+X},   
+        {"6kb/4p3/3p2P1/2p2P2/1p2P1P1/3P4/1QPq4/K1R5 w - -",                        6+X},   
+        {"r2q1rk1/4bppp/p2p4/2pP4/3pP3/3Q4/PP1B1PPP/R3R1K1 w - -",                  5+X},
+        {"rnb2r1k/pp2p2p/2pp2p1/q2P1p2/8/1Pb2NP1/PB2PPBP/R2Q1RK1 w - -",            5+X},
+        {"2r3k1/1p2q1pp/2b1pr2/p1pp4/6Q1/1P1PP1R1/P1PN2PP/5RK1 w - -",              5+X},
+        {"3rn2k/ppb2rpp/2ppqp2/5N2/2P1P3/1P5Q/PB3PPP/3RR1K1 w - -",                 5+X},
+        {"4b3/p3kp2/6p1/3pP2p/2pP1P2/4K1P1/P3N2P/8 w - -",                          7+X},
+        {"2r3k1/pppR1pp1/4p3/4P1P1/5P2/1P4K1/P1P5/8 w - -",                         6+X},
+        {"1nk1r1r1/pp2n1pp/4p3/q2pPp1N/b1pP1P2/B1P2R2/2P1B1PP/R2Q2K1 w - -",        5+X},
+        {"r1b2rk1/2q1b1pp/p2ppn2/1p6/3QP3/1BN1B3/PPP3PP/R4RK1 w - -",               5+X},
 
-        {"rnb2r1k/pp2p2p/2pp2p1/q2P1p2/8/1Pb2NP1/PB2PPBP/R2Q1RK1 w - -",            5+x},
-        {"2r3k1/1p2q1pp/2b1pr2/p1pp4/6Q1/1P1PP1R1/P1PN2PP/5RK1 w - -",              5+x},
-        {"3rn2k/ppb2rpp/2ppqp2/5N2/2P1P3/1P5Q/PB3PPP/3RR1K1 w - -",                 5+x},
-        {"4b3/p3kp2/6p1/3pP2p/2pP1P2/4K1P1/P3N2P/8 w - -",                          7+x},
-        {"2r3k1/pppR1pp1/4p3/4P1P1/5P2/1P4K1/P1P5/8 w - -",                         6+x},
-        {"1nk1r1r1/pp2n1pp/4p3/q2pPp1N/b1pP1P2/B1P2R2/2P1B1PP/R2Q2K1 w - -",        5+x},
-
-        {"r1b2rk1/2q1b1pp/p2ppn2/1p6/3QP3/1BN1B3/PPP3PP/R4RK1 w - -",               5+x},
-        {"r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - ",       5+x},
-        {"r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - - ",    5+x},
-        {"r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - ",           6+x}, 
-        {"3r1k2/4npp1/1ppr3p/p6P/P2PPPP1/1NR5/5K2/2R5 w - -",                       6+x},
+        {"r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - ",       5+X},
+        {"r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - - ",    5+X},
+        {"r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - ",           6+X}, 
+        {"3r1k2/4npp1/1ppr3p/p6P/P2PPPP1/1NR5/5K2/2R5 w - -",                       6+X},
     };
 
     sf::Clock clock;
@@ -183,7 +182,7 @@ void testAllminimax(){
     float evals[testInputs.size()];
     float timerForPos[testInputs.size()];
     int counter = 0;
-
+    table.reserve(1000000000);
     cout << "---------------------------------------------\n" << "Starting tests\n" << "---------------------------------------------\n";
     
     for(pair<string, int> i : testInputs){
@@ -209,6 +208,8 @@ void testAllminimax(){
         cout << "Evaluation: " << (float)(bestMove.second)/100.f << "\n\n";
         cout << "---------------------------------------------\n\n";
         counter += 1;
+        table.clear();
+        table.reserve(1000000000);
     }
 
     //Print out nodes per tree in list
