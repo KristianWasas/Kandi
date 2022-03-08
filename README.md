@@ -18,6 +18,6 @@ Jos haluaa ladata itselleen antaa mennä, HUOM! compiling vaatii oikean version 
 
 Oikea g++ versio on "g++.exe (Rev6, Built by MSYS2 project) 11.2.0" 
 
-Compilaus komennolla "mingw32.make", luo exe filen jonka voi ajaa
+Compilaus komennolla "mingw32-make", luo exe filen jonka voi ajaa
 
 JOS KYSYTTÄVÄÄ kristian.wasastjerna@aalto.fi
