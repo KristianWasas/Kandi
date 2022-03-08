@@ -2,11 +2,25 @@
 
 #include "backend/movegenerator.hpp"
 #include "backend/minimax.hpp"
+#include "backend/chessAI.hpp"
 #include <string>
 
 #define PERFT_DEBUG false
 
+//Values for checkmates
+#define INF (int)(99999999)
+#define NEGINF -INF
+
+//Global containers for storing data about tree structure
+static uint64_t nodesAtDepth[20] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+static uint64_t quiescenceNodesAtDepth[40] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+static uint64_t leafNodes = 0;
+static std::pair<bitBoard, int> bestMove;
+
 using namespace std;
+
+//Need to initialize, source is in minimax.hpp
+int minimax(bitBoard&, uint32_t, bool, uint8_t, int, int);
 
 //Used to debug move generator
 uint64_t perft(bitBoard& board, int currentDepth, int maxDepth, bool whiteTurn){

@@ -5,19 +5,15 @@
 #include "movegenerator.hpp"
 #include "quiescencesearch.hpp"
 
+//Values for checkmates
 #define INF (int)(99999999)
 #define NEGINF -INF
 //The null move reduction in depth
-#define R 1
+#define NMDEPTHREDUCTION 1
 //Toggles for pruning version of the algorithm
 #define AB true
-#define NULLMOVE (true && AB)
+#define NULLMOVE (true && AB)   //Null move requires AB pruning to work
 #define QSEARCH true    
-
-static uint64_t nodesAtDepth[20] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-static uint64_t quiescenceNodesAtDepth[40] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-static uint64_t leafNodes = 0;
-static std::pair<bitBoard, int> bestMove;
 
 //returns neginf if the white king is in check, ie really bad, if not returns 0, stalemate,
 //used in searchMove to return an evaluation for checkmates and stalemates, ie a position were white has no more moves
@@ -42,25 +38,26 @@ int blackKingCheck(bitBoard& board){
 int qSearch(bitBoard &board, uint32_t depth, bool whiteTurn, int alpha, int beta, bool nullTree){
 
     //Note that qSearch should be self collapsing, ie. it will stop on its own when it finds a quiet position
+    //nullTree is only for mapping tree structure, ie. if true, then its a nullmove search, so we dont add it to the tree structure
     
     if(!nullTree){
         quiescenceNodesAtDepth[depth-1] += 1;        
     }       
 
-    int standingEval = evaluation(board);                       //The static evaluation of a position
+    int standingEval = evaluation(board);                       //The static evaluation of current position
 
     //AB pruning
     #if AB
-        if(whiteTurn){                                          //We assume that there exists a move that improves the position we are currently
-            if(standingEval >= beta){  
-                if(!nullTree){
-                    leafNodes += 1;         
-                }                                               //in, if beta (for white, alpha for black) is smaller than current eval, we can 
-                return standingEval;                            //exit, since we know the opposition will never choose to come here, and return the standingEval
+        if(whiteTurn){                                          //We assume that there exists a move that keeps the current standing eval
+            if(standingEval >= beta){                           //ie. a move that doesnt weaken the position
+                if(!nullTree){                                  //if beta (for white, alpha for black) is smaller than current eval, we can 
+                    leafNodes += 1;                             //exit, since we know the opposition will never choose to come here, since by assumption, 
+                }                                               //there exists a move that is atleast equal to standing eval, and return the standingEval
+                return standingEval;                            
             }
-            alpha = max(standingEval, alpha);                   //Note, since we can choose to make a quiet move, and pressume that exists a quiet move that preserves 
-        }else{                                                  //The positions eval (here we mean the true evaluation, not the one given by handcrafted eval functions)
-            if(standingEval <= alpha){                          //Is atleast the current value, if we find a better one after capturing, we then update it
+            alpha = max(standingEval, alpha);                   //If we dont fail high, we updatre alpha if needed 
+        }else{                                                  
+            if(standingEval <= alpha){                         
                 if(!nullTree){
                     leafNodes += 1;       
                 } 
@@ -121,6 +118,7 @@ int qSearch(bitBoard &board, uint32_t depth, bool whiteTurn, int alpha, int beta
 
 }
 
+//Search were we dont conduct null moves
 int minimaxNoNullMove(bitBoard &board, uint32_t depth, bool whiteTurn, uint8_t maxDepth, int alpha, int beta){
     
     if(depth >= maxDepth){                              //Once weve reached the desired depth, we just return the evaluation
@@ -178,6 +176,7 @@ int minimaxNoNullMove(bitBoard &board, uint32_t depth, bool whiteTurn, uint8_t m
     }
 }
 
+//Primary search algorithm
 int minimax(bitBoard &board, uint32_t depth, bool whiteTurn, uint8_t maxDepth, int alpha, int beta){
 
     nodesAtDepth[depth] += 1; 
@@ -201,8 +200,8 @@ int minimax(bitBoard &board, uint32_t depth, bool whiteTurn, uint8_t maxDepth, i
         #if NULLMOVE
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
-            if((maxDepth > depth + 1 +R) && (whiteKingCheck(board) == 0)){                           
-                int nullMoveValue = minimaxNoNullMove(board, depth + 1 + R, false, maxDepth, alpha, beta);
+            if((maxDepth > depth + 1 + NMDEPTHREDUCTION) && (whiteKingCheck(board) == 0)){                           
+                int nullMoveValue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, false, maxDepth, alpha, beta);
                 if(nullMoveValue >= beta){                  //If the null move value fails high, return value
                     leafNodes += 1;
                     return nullMoveValue;
@@ -240,8 +239,8 @@ int minimax(bitBoard &board, uint32_t depth, bool whiteTurn, uint8_t maxDepth, i
         #if NULLMOVE
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
-            if((maxDepth > depth + 1 +R) && (blackKingCheck(board) == 0)){                           
-                int nullMoveValue = minimaxNoNullMove(board, depth + 1 + R, true, maxDepth, alpha, beta);
+            if((maxDepth > depth + 1 + NMDEPTHREDUCTION) && (blackKingCheck(board) == 0)){                           
+                int nullMoveValue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, true, maxDepth, alpha, beta);
                 if(nullMoveValue <= alpha){                  //If the null move value fails low, return value
                     return nullMoveValue;
                 }                                           

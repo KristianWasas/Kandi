@@ -7,6 +7,7 @@
 #include "piece.cpp"
 #include "backend/bitboard.hpp"
 #include "backend/movegenerator.hpp"
+#include "backend/chessAI.hpp"
 
 using namespace std;
 

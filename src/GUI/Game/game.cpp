@@ -11,6 +11,9 @@ Game::Game(int difficulty, bool aiCol){
     }
     boardGraphicSprite.setTexture(boardGraphic);
 
+    highLightRect.setFillColor(sf::Color::Red);
+    highLightRect.setSize(sf::Vector2f(70, 70));
+
     diff = difficulty;
     aiColour = aiCol;
 
@@ -74,8 +77,38 @@ void Game::update(sf::Vector2i mouse){
         }
     }
 
-    if(!gameEnd && (aiColour == whiteTurn)){
-        //Call the AI to make a move
+    if(!gameEnd && (aiColour == whiteTurn)){ 
+        sf::Clock time;
+        //Place holder variables for highlighting moves piece
+        bitBoard placeHolder = board;
+        uint64_t placeholderWhitePieces = board.wP|board.wH|board.wB|board.wR|board.wQ|board.wK;
+        uint64_t placeholderBlackPieces = board.bP|board.bH|board.bB|board.bR|board.bQ|board.bK;
+
+        time.restart();
+        board = chessAI(board, diff, aiColour);
+        cout << "The AI used " << time.restart().asSeconds() << " seconds to move\n";
+
+        for(Piece* i : pieces){
+            delete i;
+        }
+        hasPossibleMovesUpdated = false;
+        pieces.clear();
+        createPieces(board, pieces);
+
+        //Variables for highlighting
+        uint64_t whitePieces = board.wP|board.wH|board.wB|board.wR|board.wQ|board.wK;
+        uint64_t blackPieces =board.bP|board.bH|board.bB|board.bR|board.bQ|board.bK;
+
+        if(!whiteTurn){               
+            highLightSquare = __builtin_ctzll((blackPieces^placeholderBlackPieces) & blackPieces);
+            highLight = true;
+            highLightTime = 0;
+        }else{
+            highLightSquare = __builtin_ctzll((whitePieces^placeholderWhitePieces) & whitePieces);
+            highLight = true;
+            highLightTime = 0;
+        }
+        whiteTurn = !whiteTurn;
     }
     
 
@@ -322,6 +355,12 @@ void Game::update(sf::Vector2i mouse){
 
 void Game::drawGame(sf::RenderTarget* target){
     target->draw(boardGraphicSprite);
+    
+    if(highLight && highLightTime < 5){
+        highLightRect.setPosition((highLightSquare%8) * 70, (highLightSquare/8) * 70);
+        target->draw(highLightRect);
+    }
+
     for(Piece* i : pieces){
         i->drawPiece(target);
     }
