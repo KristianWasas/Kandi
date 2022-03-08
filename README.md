@@ -9,7 +9,7 @@ Vaiheessa vielä
 
 ATM on:
 - Backend, toimiva siirtogeneraattori ja evaluointi funktio, myös minimax hakualgoritmi ja tarvittavat apu funktiot bitBoardin käsittelyyn, toimii itsessään
-- Game, siellä on vain itse shakin pelaamisen tarvittavat koodit, Kandiin turha, mutta jos haluu pelata shakkia antaa mennä, vielä ei ole AI implementoitu 
+- Game, siellä on vain itse shakin pelaamisen tarvittavat koodit, Kandiin turha, mutta jos haluu pelata shakkia antaa mennä, AI implementoitu myös chessAI kohdassa 
 - GUI, siellä on ite SFML rajapinta ja kaikki tarvittava peli ikkunalle yms.
 - Testing, Itse kandi data keruuta varten
 - testData, siellä on kandissa käytettävä "raaka" data, 
