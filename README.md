@@ -3,7 +3,7 @@ Bachelor thesis
 
 Työn tarkoituksena on tutkia eri konseptien implementointia minimax hakualgoritmiin shakissa. Sitten vertaillaan muodostuneita haku puita ja yritetään näin ollen parantaa alkuperäistä hakualgoritmia. 
 
-Lukuun ottamatta paria lookuptablen osaa, kaikki on itse koodattu. 
+Lukuun ottamatta paria lookuptablen osaa ja SFML kirjastoa, kaikki itse. 
 
 Vaiheessa vielä
 
@@ -14,6 +14,7 @@ myös transpositiontable on implementoitu backendiin (EI NOPEASTI, HUONO IMPLEME
 - GUI, siellä on ite SFML rajapinta ja kaikki tarvittava peli ikkunalle yms.
 - Testing, Itse kandi data keruuta varten tarvittava koodi
 - testData, siellä on kandissa käytettävä "raaka" data, 
+- Nyt myös AI vs AI option, togglet löytyy game.cpp ja minimax.cpp kansioista, voi vertailla kahta algoritmia keskenään
 
 Jos haluaa ladata itselleen antaa mennä, HUOM! compiling vaatii oikean g++ version ja toimii vaan Windowsilla
 
