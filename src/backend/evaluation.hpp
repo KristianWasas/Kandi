@@ -4,6 +4,7 @@
 #include "lookuptable.hpp"
 #include "testing/tests.hpp"
 
+//Static evaluation of the board, fairly primitive
 int32_t evaluation(bitBoard board){
 
     const int gamePhase = __builtin_popcountll(board.wQ | board.bQ) * 4 + __builtin_popcountll(board.wR |board.bR) * 2 + __builtin_popcountll(board.wH | board.bH | board.wB | board.bB);

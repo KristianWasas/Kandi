@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------------------------------
 This is a version of a minimax algorithm with a transposition table implemented. The only difference 
-we can do for TT is do we allow shollewer searches to return values for nodes that would normally require
+we can do for TT is do we allow shallewer searches to return values for nodes that would normally require
 a deeper search. For example a position is encountered the first time at depth 6, we store the value 
 in the table. But we encounter the exact position at depth 4, now can still accept this result and 
 return it, but doing so might change the outcome of the search and miss something, but will lead to a 
 smaller tree. 
 
-This version requires the depths of the already searched node and the node we are checking to be equal or less.
-ie. the position has already be searched a t an equivalent depth or higher up th tree
+This version has no requirments for the depth, ie a position originally searched at depth 6 is valid when the 
+same node is found at depth 2
 --------------------------------------------------------------------------------------------------------
 
 int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth, int32_t alpha, int32_t beta){

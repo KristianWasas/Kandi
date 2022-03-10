@@ -37,4 +37,4 @@ Each versionX is built upon a previous implementation, ie. version2.x is version
 version3.x has transposition table implemented.
 
 Finally we will start combining the best version of each algorithm and end up with a algorithm 
-which will have ab, null move, TT, and quiescence search
+which will have ab, null move, TT, and quiescence search, and the result is an algorithm that has minimizes the search tree size, but also keeps a high level of play
