@@ -9,8 +9,10 @@
 //Values for checkmates
 #define INF (int32_t)(999999)
 #define NEGINF -INF
+
 //The null move reduction in depth
 #define NMDEPTHREDUCTION 2
+#define EXTRADEPTH 0
 //Toggles for versions of the algorithm
 #define AB true
 #define NULLMOVE (true && AB)   //Null move requires AB pruning to work
@@ -18,11 +20,12 @@
 #define TT !true
 
 //The null move reduction in depth for minimax2
-#define NMDEPTHREDUCTION2 1
+#define NMDEPTHREDUCTION2 0
+#define EXTRADEPTH2 0
 //Toggles for versions of the algorithm minimax2
 #define AB2 true
 #define NULLMOVE2 (!true && AB)   //Null move requires AB pruning to work
-#define QSEARCH2 true
+#define QSEARCH2 !true
 #define TT2 !true
 
 //returns neginf if the white king is in check, ie really bad, if not returns 0, stalemate,
@@ -157,10 +160,10 @@ int32_t minimaxNoNullMove(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_
         }
     #endif
 
-    if(depth >= maxDepth){                              //Once weve reached the desired depth, we just return the evaluation/Qsearch
+    if(depth >= maxDepth + EXTRADEPTH){                              //Once weve reached the desired depth, we just return the evaluation/Qsearch
         
         #if QSEARCH
-            return qSearch(board, depth+1, !whiteTurn, alpha, beta, true);    //Call the qSearch once reached the 
+            return qSearch(board, depth+1, whiteTurn, alpha, beta, true);    //Call the qSearch once reached the 
         #endif
 
         return evaluation(board);
@@ -225,17 +228,17 @@ int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth
     #if TT
         uint64_t posHash = hashFunction(board, whiteTurn);
         if(table.count(posHash)){
-            //if((table[posHash].second) <= depth){    //Check that the value that is found was searched higher up in the tree or same depth
+            if((table[posHash].second) <= depth){    //Check that the value that is found was searched higher up in the tree or same depth
                 leafNodes += 1;
                 return table[posHash].first;
-            //}
+            }
         }
     #endif
 
-    if(depth >= maxDepth){                              //Once weve reached the desired depth, we just return the evaluation
+    if(depth >= maxDepth + EXTRADEPTH){                              //Once weve reached the desired depth, we just return the evaluation
         
         #if QSEARCH
-            return qSearch(board, depth+1, !whiteTurn, alpha, beta, false);    //Call the qSearch 
+            return qSearch(board, depth+1, whiteTurn, alpha, beta, false);    //Call the qSearch 
         #endif
 
         leafNodes += 1;
@@ -252,12 +255,11 @@ int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
             if((maxDepth > depth + 1 + NMDEPTHREDUCTION) && (whiteKingCheck(board) == 0)){                           
-                int32_t nullMove2alue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, false, maxDepth, alpha, beta);
-                if(nullMove2alue >= beta){                  //If the null move value fails high, return value
+                int32_t nullMoveValue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, false, maxDepth, alpha, beta);
+                if(nullMoveValue >= beta){                  //If the null move value fails high, return value
                     leafNodes += 1;
-                    return nullMove2alue;
-                }                                         
-                //alpha = max(alpha, nullMove2alue);          //Assume that exists a move that is atleast as good as nullmove                                                      
+                    return nullMoveValue;
+                }                                                     
             }
         #endif
 
@@ -292,11 +294,10 @@ int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
             if((maxDepth > depth + 1 + NMDEPTHREDUCTION) && (blackKingCheck(board) == 0)){                           
-                int32_t nullMove2alue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, true, maxDepth, alpha, beta);
-                if(nullMove2alue <= alpha){                  //If the null move value fails low, return value
-                    return nullMove2alue;
-                }                                           
-                //beta = min(beta, nullMove2alue); 
+                int32_t nullMoveValue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, true, maxDepth, alpha, beta);
+                if(nullMoveValue <= alpha){                  //If the null move value fails low, return value
+                    return nullMoveValue;
+                }         
             }
         #endif
         
@@ -445,10 +446,10 @@ int32_t minimaxNoNullMove2(bitBoard &board, uint8_t depth, bool whiteTurn, uint8
         }
     #endif
 
-    if(depth >= maxDepth){                              //Once weve reached the desired depth, we just return the evaluation/Qsearch
+    if(depth >= maxDepth + EXTRADEPTH2){                              //Once weve reached the desired depth, we just return the evaluation/Qsearch
         
         #if QSEARCH2
-            return qSearch2(board, depth+1, !whiteTurn, alpha, beta, true);    //Call the qSearch once reached the 
+            return qSearch2(board, depth+1, whiteTurn, alpha, beta, true);    //Call the qSearch once reached the 
         #endif
 
         return evaluation(board);
@@ -513,17 +514,17 @@ int32_t minimax2(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDept
     #if TT2
         uint64_t posHash = hashFunction(board, whiteTurn);
         if(table.count(posHash)){
-            //if((table[posHash].second) <= depth){    //Check that the value that is found was searched higher up in the tree or same depth
+            //if((table[posHash].second) == depth){    //Check that the value that is found was searched higher up in the tree or same depth
                 leafNodes += 1;
                 return table[posHash].first;
             //}
         }
     #endif
 
-    if(depth >= maxDepth){                              //Once weve reached the desired depth, we just return the evaluation
+    if(depth >= maxDepth + EXTRADEPTH2){                              //Once weve reached the desired depth, we just return the evaluation
         
         #if QSEARCH2
-            return qSearch2(board, depth+1, !whiteTurn, alpha, beta, false);    //Call the qSearch 
+            return qSearch2(board, depth+1, whiteTurn, alpha, beta, false);    //Call the qSearch 
         #endif
 
         leafNodes += 1;
@@ -540,12 +541,11 @@ int32_t minimax2(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDept
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
             if((maxDepth > depth + 1 + NMDEPTHREDUCTION2) && (whiteKingCheck(board) == 0)){                           
-                int32_t nullMove2alue = minimaxNoNullMove2(board, depth + 1 + NMDEPTHREDUCTION2, false, maxDepth, alpha, beta);
-                if(nullMove2alue >= beta){                  //If the null move value fails high, return value
+                int32_t nullMoveValue = minimaxNoNullMove2(board, depth + 1 + NMDEPTHREDUCTION2, false, maxDepth, alpha, beta);
+                if(nullMoveValue >= beta){                  //If the null move value fails high, return value
                     leafNodes += 1;
-                    return nullMove2alue;
-                }                                         
-                //alpha = max(alpha, nullMove2alue);          //Assume that exists a move that is atleast as good as nullmove                                                      
+                    return nullMoveValue;
+                }                                                                                               
             }
         #endif
 
@@ -580,11 +580,10 @@ int32_t minimax2(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDept
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
             if((maxDepth > depth + 1 + NMDEPTHREDUCTION2) && (blackKingCheck(board) == 0)){                           
-                int32_t nullMove2alue = minimaxNoNullMove2(board, depth + 1 + NMDEPTHREDUCTION2, true, maxDepth, alpha, beta);
-                if(nullMove2alue <= alpha){                  //If the null move value fails low, return value
-                    return nullMove2alue;
-                }                                           
-                //beta = min(beta, nullMove2alue); 
+                int32_t nullMoveValue = minimaxNoNullMove2(board, depth + 1 + NMDEPTHREDUCTION2, true, maxDepth, alpha, beta);
+                if(nullMoveValue <= alpha){                  //If the null move value fails low, return value
+                    return nullMoveValue;
+                }                                  
             }
         #endif
         

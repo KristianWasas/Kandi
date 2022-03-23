@@ -3,10 +3,10 @@
 #include "game.hpp"
 
 //If you want AI vs AI or player vs player, if both false, its player vs ai
-#define AIvsAI true
+#define AIvsAI !true
 #define PvP !true
 
-#define AI_VS_AI_DEPTH 4
+#define AI_VS_AI_DEPTH 6
 
 using namespace std;
 
@@ -22,6 +22,8 @@ Game::Game(int difficulty, bool aiCol){
 
     diff = difficulty;
     aiColour = aiCol;
+
+    //Starting pos: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
     board = FENtoBitBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
     createPieces(board, pieces);

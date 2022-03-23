@@ -7,6 +7,7 @@ bitBoard chessAI(bitBoard &board, int difficulty, bool color){
     vector<string> ok = {"Black", "White"};
     cout << "\n";
     cout << "The "<< ok[color] <<" AI is thinking" << "\n";
+    sf::Clock clock;
 
     vector<bitBoard> possibleMoves; 
     possibleMoves.reserve(50);
@@ -14,7 +15,6 @@ bitBoard chessAI(bitBoard &board, int difficulty, bool color){
     bitBoard bestCurrentMove = board;
     int moveEval;
     int searchDepth = 1 + difficulty;
-    cout << "Search Depth: " << searchDepth + 1 <<"\n";
 
     if(color){
         generateWhiteMoves(board, possibleMoves);
@@ -23,9 +23,12 @@ bitBoard chessAI(bitBoard &board, int difficulty, bool color){
         generateBlackMoves(board, possibleMoves);
         bestMoveEval = INF;
     }
-
+    cout << "Conducting inital checkmate sequence search" <<"\n";
     //First search for fastest checkmates
-    for(int a = 0; a<searchDepth; a++){
+    clock.restart();
+    uint8_t a = 0;
+    float searchTime = (float)(0.5)/(float)((6-difficulty)*(6-difficulty));
+    while(clock.getElapsedTime().asSeconds()<searchTime){
         for(bitBoard &i : possibleMoves){
             moveEval = minimax(i, 0, !color, a, NEGINF, INF);
             if(!color && (moveEval == NEGINF)){
@@ -34,11 +37,14 @@ bitBoard chessAI(bitBoard &board, int difficulty, bool color){
                 return i;
             }
         }
+        a += 1;
     }
+
+    cout << "No checkmates found\nSearch Depth: " << a+1 <<"\n";
 
     //Primary search, NOTE if all moves lead to checkmate for self (eval INF for black and NEGINF for white), doesnt update anything
     for(bitBoard &i : possibleMoves){
-        moveEval = minimax(i, 0, !color, searchDepth, NEGINF, INF);
+        moveEval = minimax(i, 0, !color, a, NEGINF, INF);
         if(!color && (bestMoveEval > moveEval)){
             bestCurrentMove = i;
             bestMoveEval = moveEval;
@@ -53,9 +59,9 @@ bitBoard chessAI(bitBoard &board, int difficulty, bool color){
     //Then it will just return the static eval of the possible move
     if(color){
         while(bestMoveEval == NEGINF){
-            searchDepth -= 1;
+            a -= 1;
             for(bitBoard &i : possibleMoves){
-                moveEval = minimax(i, 0, false, searchDepth, NEGINF, INF);
+                moveEval = minimax2(i, 0, false, a, NEGINF, INF);
                 if(bestMoveEval < moveEval){
                     bestCurrentMove = i;
                     bestMoveEval = moveEval;
@@ -64,9 +70,9 @@ bitBoard chessAI(bitBoard &board, int difficulty, bool color){
         }
     }else{
         while(bestMoveEval == INF){
-            searchDepth -= 1;
+            a -= 1;
             for(bitBoard &i : possibleMoves){
-                moveEval = minimax(i, 0, true, searchDepth, NEGINF, INF);
+                moveEval = minimax2(i, 0, true, a, NEGINF, INF);
                 if(bestMoveEval > moveEval){
                     bestCurrentMove = i;
                     bestMoveEval = moveEval;
@@ -100,10 +106,12 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
     }
 
     //Here since we have AI vs AI, we have two different minimax algos depending on the color of the AI
-    if(color){
+    if(!color){
         //First search for fastest checkmates
         for(int a = 0; a<searchDepth; a++){
             for(bitBoard &i : possibleMoves){
+                table.clear();
+                table.reserve(100000);
                 moveEval = minimax(i, 0, !color, a, NEGINF, INF);
                 if(!color && (moveEval == NEGINF)){
                     return i;
@@ -115,6 +123,8 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
 
         //Primary search, NOTE if all moves lead to checkmate for self (eval INF for black and NEGINF for white), doesnt update anything
         for(bitBoard &i : possibleMoves){
+            table.clear();
+            table.reserve(100000);
             moveEval = minimax(i, 0, !color, searchDepth, NEGINF, INF);
             if(!color && (bestMoveEval > moveEval)){
                 bestCurrentMove = i;
@@ -132,6 +142,8 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
             while(bestMoveEval == NEGINF){
                 searchDepth -= 1;
                 for(bitBoard &i : possibleMoves){
+                    table.clear();
+                    table.reserve(100000);
                     moveEval = minimax(i, 0, false, searchDepth, NEGINF, INF);
                     if(bestMoveEval < moveEval){
                         bestCurrentMove = i;
@@ -143,6 +155,8 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
             while(bestMoveEval == INF){
                 searchDepth -= 1;
                 for(bitBoard &i : possibleMoves){
+                    table.clear();
+                    table.reserve(100000);
                     moveEval = minimax(i, 0, true, searchDepth, NEGINF, INF);
                     if(bestMoveEval > moveEval){
                         bestCurrentMove = i;
@@ -155,6 +169,8 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
         //First search for fastest checkmates
         for(int a = 0; a<searchDepth; a++){
             for(bitBoard &i : possibleMoves){
+                table.clear();
+                table.reserve(100000);
                 moveEval = minimax2(i, 0, !color, a, NEGINF, INF);
                 if(!color && (moveEval == NEGINF)){
                     return i;
@@ -166,6 +182,8 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
 
         //Primary search, NOTE if all moves lead to checkmate for self (eval INF for black and NEGINF for white), doesnt update anything
         for(bitBoard &i : possibleMoves){
+            table.clear();
+            table.reserve(100000);
             moveEval = minimax2(i, 0, !color, searchDepth, NEGINF, INF);
             if(!color && (bestMoveEval > moveEval)){
                 bestCurrentMove = i;
@@ -183,6 +201,8 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
             while(bestMoveEval == NEGINF){
                 searchDepth -= 1;
                 for(bitBoard &i : possibleMoves){
+                    table.clear();
+                    table.reserve(100000);
                     moveEval = minimax2(i, 0, false, searchDepth, NEGINF, INF);
                     if(bestMoveEval < moveEval){
                         bestCurrentMove = i;
@@ -194,6 +214,8 @@ bitBoard chessAIvsAI(bitBoard &board, int searchDepth, bool color){
             while(bestMoveEval == INF){
                 searchDepth -= 1;
                 for(bitBoard &i : possibleMoves){
+                    table.clear();
+                    table.reserve(100000);
                     moveEval = minimax2(i, 0, true, searchDepth, NEGINF, INF);
                     if(bestMoveEval > moveEval){
                         bestCurrentMove = i;

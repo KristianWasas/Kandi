@@ -55,7 +55,7 @@ void MenuState::updateState(){
         nextStateNum = difficulty;
     }
     if(hardButton->activated && buttonTime > 0.25){
-        difficulty = min(4, difficulty+1);
+        difficulty = min(5, difficulty+1);
         buttonTime = 0;
     }
     if(easyButton->activated && buttonTime > 0.25){

@@ -1,0 +1,45 @@
+---------------------------------------------------------------------------
+Here we will compare algorithms 5.0 and 4.1, also we will compare them with 5.0 getting a 1 depth handicap
+---------------------------------------------------------------------------
+
+Openings
+
+r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3           Ruy lopez
+r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3            Scotch game
+rnbqkb1r/pppp1ppp/4pn2/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3             Catalan 
+
+-----------------------------------------------------------------------------------------
+
+version4.1 vs version5.0
+
+- Ruylopez 4.1 as white:        DRAW
+- Scotch game 4.1 as white:     LOSE
+- Catalan 4.1 as white:         DRAW
+- Ruylopez 4.1 as black:        LOSE
+- Scotch game 4.1 as black:     LOSE
+- Catalan 4.1 as black:         LOSE
+
+Results:
+version4.1  =   1
+version5.0  =   5
+
+-----------------------------------------------------------------------------------------
+
+version4.1 vs version5.0(-1 depth)
+
+- Ruylopez 4.1 as white:        LOSE
+- Scotch game 4.1 as white:     LOSE
+- Catalan 4.1 as white:         DRAW
+- Ruylopez 4.1 as black:        LOSE
+- Scotch game 4.1 as black:     DRAW
+- Catalan 4.1 as black:         LOSE
+
+Results:
+version4.1  =   1
+version5.0  =   5
+
+-----------------------------------------------------------------------------------------
+Total score
+
+version4.1  =  2/12
+version5.0  =  10/12

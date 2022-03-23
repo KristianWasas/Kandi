@@ -1,0 +1,66 @@
+---------------------------------------------------------------------------
+Here, since transposition table version can alter the search (in cases 3.2 and 3.1) , we will be conducting play with the three algorithms
+against each other, we will be adding AB pruning, because AB pruning allows us to search deeper (faster), and has no impact on the result.
+The games will be played from 3 opening positions, with both algorithms playing each side, so 6 games between two algorithms.
+And we will only be looking at the result ie. draw, win or lose. How the result is achieved is discarded, since we only care of the 
+preceived strenghts for now. The depth is static accross all the games
+---------------------------------------------------------------------------
+
+Openings
+
+r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3           Ruy lopez
+r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3            Scotch game
+rnbqkb1r/pppp1ppp/4pn2/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3             Catalan 
+
+-----------------------------------------------------------------------------------------
+
+version3.0 vs version3.1
+
+- Ruylopez 3.0 as white:    DRAW
+- Scotch game 3.0 as white: DRAW
+- Catalan 3.0 as white:     DRAW, crearly winning endgame for black, repetition
+- Ruylopez 3.0 as black:    DRAW
+- Scotch game 3.0 as black: WIN
+- Catalan 3.0 as black:     WIN
+
+Results:
+version3.0  =   4
+version3.1  =   2
+
+-----------------------------------------------------------------------------------------
+
+version3.0 vs version3.2
+
+- Ruylopez 3.0 as white:    DRAW
+- Scotch game 3.0 as white: DRAW
+- Catalan 3.0 as white:     DRAW, crearly winning endgame for black, repetition
+- Ruylopez 3.0 as black:    DRAW
+- Scotch game 3.0 as black: DRAW
+- Catalan 3.0 as black:     WIN
+
+Results:
+version3.0  =   3.5
+version3.2  =   2.5
+
+-----------------------------------------------------------------------------------------
+
+version3.1 vs version3.2
+
+- Ruylopez 3.1 as white:    DRAW
+- Scotch game 3.1 as white: LOSS
+- Catalan 3.1 as white:     LOSS
+- Ruylopez 3.1 as black:    DRAW
+- Scotch game 3.1 as black: LOSS
+- Catalan 3.1 as black:     WIN
+
+Results:
+version3.1  =   2
+version3.2  =   4
+
+-----------------------------------------------------------------------------------------
+
+Total score
+
+version3.0  =   7.5/12
+version3.1  =   4/12
+version3.2  =   6.5/12
