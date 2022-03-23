@@ -5,7 +5,7 @@ Työn tarkoituksena on tutkia eri konseptien implementointia minimax hakualgorit
 
 Lukuun ottamatta paria lookuptablen osaa ja SFML kirjastoa, kaikki itse. 
 
-Vaiheessa vielä
+Kandiin tarvittavat osat valmiit, kokonaisuus on aika ready, vielä opening book tulee jossain vaiheessa
 
 ATM on:
 - Backend, toimiva siirtogeneraattori ja evaluointi funktio, myös minimax hakualgoritmi ja tarvittavat apu funktiot bitBoardin käsittelyyn, toimii itsessään,
