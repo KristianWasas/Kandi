@@ -5,11 +5,11 @@ we keep capturing untill the result is either a fail high on static eval or
 we have no more captures and return the eval, NOTE data-1.text has data of the search with -1 depth
 ------------------------------------------------------------------
 
-int qSearch(bitBoard &board, bool whiteTurn, int alpha, int beta){
+int32_t qSearch(bitBoard &board, bool whiteTurn, int32_t alpha, int32_t beta){
 
     //Note that qSearch should be self collapsing, ie. it will stop on its own when it finds a quiet position 
 
-    int standingEval = evaluation(board);                   //The static evaluation of current position
+    int32_t standingEval = evaluation(board);                   //The static evaluation of current position
 
     if(whiteTurn){                                          //We assume that there exists a move that keeps the current standing eval
         if(standingEval >= beta){                           //ie. a move that doesnt weaken the position                                              
@@ -24,13 +24,13 @@ int qSearch(bitBoard &board, bool whiteTurn, int alpha, int beta){
     }
 
     vector<bitBoard> moves;                             //Initialize needed variables
-    int eval = standingEval;                            //Here the minimum eval is the standing eval, since now we only search captures, we assume there is a move that preserves the eval
+    int32_t eval = standingEval;                            //Here the minimum eval is the standing eval, since now we only search captures, we assume there is a move that preserves the eval
     moves.reserve(10);
 
     if(whiteTurn){                                      //White ie. maximizing player
         generateWhiteNonQuietMoves(board, moves);       //Generate all possible moves for white that could impact the eval, ie. "non-quiet", and store them in moves                            
         for(bitBoard &i : moves){                       //Loop over all non-quiet moves, and recursively call qsearch, if found move is better than existing one, replace
-            int moveEval = qSearch(i, depth + 1, false, alpha, beta, nullTree);
+            int32_t moveEval = qSearch(i, depth + 1, false, alpha, beta, nullTree);
             eval = max(eval, moveEval);     
             if(beta <= eval){                           //If there exists a beta (beta being the best option for the minimizer in a parent node so far)
                 return eval;                            //That is smaller than the current value of the node we are in, we know that the minimizing player
@@ -41,7 +41,7 @@ int qSearch(bitBoard &board, bool whiteTurn, int alpha, int beta){
     else{                                               //Minimizing player, same process as for white, but we minimize and return INF if in checkmate
         generateBlackNonQuietMoves(board, moves);                      
         for(bitBoard &i : moves){
-            int moveEval = qSearch(i, depth + 1, true, alpha, beta, nullTree);
+            int32_t moveEval = qSearch(i, depth + 1, true, alpha, beta, nullTree);
             eval = min(eval, moveEval);                 //Same process as for the maximizer, but mirrored and using alpha (best option for a maximizing parent node)
             if(alpha >= eval){
                 return eval;
@@ -53,14 +53,14 @@ int qSearch(bitBoard &board, bool whiteTurn, int alpha, int beta){
     return eval;                                    //We return the value of the best move/child node, OR the standingEval if not capturing is better or no captures available
 }
 
-int minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth, int alpha, int beta){
+int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth, int32_t alpha, int32_t beta){
     
     if(depth == maxDepth){                              //Once weve reached the desired depth, we call qSearch
         return qSearch(bitBoard &board, whiteTurn, alpha, beta);
     }
 
     vector<bitBoard> moves;                             //Initialize needed variables
-    int eval;
+    int32_t eval;
     moves.reserve(50);
 
     if(whiteTurn){                                      //White ie. maximizing player
@@ -80,7 +80,7 @@ int minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth, in
         }
         eval = NEGINF;                                  
         for(bitBoard &i : moves){                       //Loop over all possible moves, and recursively call minimax, if found move is better than existing one, replace
-            int moveEval = minimax(i, depth + 1, false, maxDepth, alpha, beta);
+            int32_t moveEval = minimax(i, depth + 1, false, maxDepth, alpha, beta);
             eval = max(eval, moveEval);     
             if(beta <= eval){                           //If there exists a beta (beta being the best option for the minimizer in a parent node so far)
                 break;                                  //That is smaller than the current value of the node we are in, we know that the minimizing player
@@ -106,7 +106,7 @@ int minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth, in
         }
         eval = INF;                                     //Again we initialize, but as INF, since black tries to minimize the score
         for(bitBoard &i : moves){
-            int moveEval = minimax(i, depth + 1, true, maxDepth, alpha, beta);
+            int32_t moveEval = minimax(i, depth + 1, true, maxDepth, alpha, beta);
             eval = min(eval, moveEval);                 //Same process as for the maximizer, but mirrored and using alpha (best option for a maximizing parent node)
             if(alpha >= eval){
                 break;

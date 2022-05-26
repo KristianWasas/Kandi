@@ -11,20 +11,20 @@
 #define NEGINF -INF
 
 //The null move reduction in depth
-#define NMDEPTHREDUCTION 2
+#define NMDEPTHREDUCTION 3
 #define EXTRADEPTH 0
 //Toggles for versions of the algorithm
 #define AB true
 #define NULLMOVE (true && AB)   //Null move requires AB pruning to work
-#define QSEARCH true
+#define QSEARCH !true
 #define TT !true
 
 //The null move reduction in depth for minimax2
-#define NMDEPTHREDUCTION2 0
+#define NMDEPTHREDUCTION2 2
 #define EXTRADEPTH2 0
 //Toggles for versions of the algorithm minimax2
 #define AB2 true
-#define NULLMOVE2 (!true && AB)   //Null move requires AB pruning to work
+#define NULLMOVE2 (true && AB)   //Null move requires AB pruning to work
 #define QSEARCH2 !true
 #define TT2 !true
 
@@ -254,8 +254,8 @@ int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth
         #if NULLMOVE
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
-            if((maxDepth > depth + 1 + NMDEPTHREDUCTION) && (whiteKingCheck(board) == 0)){                           
-                int32_t nullMoveValue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, false, maxDepth, alpha, beta);
+            if((maxDepth > depth + NMDEPTHREDUCTION) && (whiteKingCheck(board) == 0)){                           
+                int32_t nullMoveValue = minimaxNoNullMove(board, depth + NMDEPTHREDUCTION, false, maxDepth, alpha, beta);
                 if(nullMoveValue >= beta){                  //If the null move value fails high, return value
                     leafNodes += 1;
                     return nullMoveValue;
@@ -293,8 +293,8 @@ int32_t minimax(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDepth
         #if NULLMOVE
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
-            if((maxDepth > depth + 1 + NMDEPTHREDUCTION) && (blackKingCheck(board) == 0)){                           
-                int32_t nullMoveValue = minimaxNoNullMove(board, depth + 1 + NMDEPTHREDUCTION, true, maxDepth, alpha, beta);
+            if((maxDepth > depth + NMDEPTHREDUCTION) && (blackKingCheck(board) == 0)){                           
+                int32_t nullMoveValue = minimaxNoNullMove(board, depth + NMDEPTHREDUCTION, true, maxDepth, alpha, beta);
                 if(nullMoveValue <= alpha){                  //If the null move value fails low, return value
                     return nullMoveValue;
                 }         
@@ -540,8 +540,8 @@ int32_t minimax2(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDept
         #if NULLMOVE2
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
-            if((maxDepth > depth + 1 + NMDEPTHREDUCTION2) && (whiteKingCheck(board) == 0)){                           
-                int32_t nullMoveValue = minimaxNoNullMove2(board, depth + 1 + NMDEPTHREDUCTION2, false, maxDepth, alpha, beta);
+            if((maxDepth > depth + NMDEPTHREDUCTION2) && (whiteKingCheck(board) == 0)){                           
+                int32_t nullMoveValue = minimaxNoNullMove2(board, depth + NMDEPTHREDUCTION2, false, maxDepth, alpha, beta);
                 if(nullMoveValue >= beta){                  //If the null move value fails high, return value
                     leafNodes += 1;
                     return nullMoveValue;
@@ -579,8 +579,8 @@ int32_t minimax2(bitBoard &board, uint8_t depth, bool whiteTurn, uint8_t maxDept
         #if NULLMOVE2
             //Nullmove pruning
             //Try a null move if ones desired, and aslong as we are not in Check
-            if((maxDepth > depth + 1 + NMDEPTHREDUCTION2) && (blackKingCheck(board) == 0)){                           
-                int32_t nullMoveValue = minimaxNoNullMove2(board, depth + 1 + NMDEPTHREDUCTION2, true, maxDepth, alpha, beta);
+            if((maxDepth > depth + NMDEPTHREDUCTION2) && (blackKingCheck(board) == 0)){                           
+                int32_t nullMoveValue = minimaxNoNullMove2(board, depth + NMDEPTHREDUCTION2, true, maxDepth, alpha, beta);
                 if(nullMoveValue <= alpha){                  //If the null move value fails low, return value
                     return nullMoveValue;
                 }                                  

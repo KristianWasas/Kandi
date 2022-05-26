@@ -3,10 +3,10 @@
 #include "game.hpp"
 
 //If you want AI vs AI or player vs player, if both false, its player vs ai
-#define AIvsAI !true
+#define AIvsAI true
 #define PvP !true
 
-#define AI_VS_AI_DEPTH 6
+#define AI_VS_AI_DEPTH 5
 
 using namespace std;
 
@@ -25,7 +25,8 @@ Game::Game(int difficulty, bool aiCol){
 
     //Starting pos: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
-    board = FENtoBitBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+    board = FENtoBitBoard("rnbqkb1r/pppp1ppp/4pn2/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3");
+    whiteTurn = !true;
     createPieces(board, pieces);
 
     //Initialize zobrist hash values 

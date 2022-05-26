@@ -11,7 +11,7 @@ Testing Position 0: r3qb1k/1b4p1/p2pr2p/3n4/Pnp1N1N1/6RP/1B3PP1/1B1QR1K1 w - -
  .  B  .  .  .  P  P  .
  .  B  .  Q  R  .  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.875562 seconds
+Time to create and traverse the search tree: 0.855638 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 47
@@ -50,7 +50,7 @@ Testing Position 1: r4rk1/pp1n1p1p/1nqP2p1/2b1P1B1/4NQ2/1B3P2/PP2K2P/2R5 w - -
  P  P  .  .  K  .  .  P
  .  .  R  .  .  .  .  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.11374 seconds
+Time to create and traverse the search tree: 1.14094 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 47
@@ -89,7 +89,7 @@ Testing Position 2: r2qk2r/ppp1b1pp/2n1p3/3pP1n1/3P2b1/2PB1NN1/PP4PP/R1BQK2R w K
  P  P  .  .  .  .  P  P
  R  .  B  Q  K  .  .  R
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.2387 seconds
+Time to create and traverse the search tree: 1.20698 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 44
@@ -128,7 +128,7 @@ Testing Position 3: r1b1kb1r/1p1n1ppp/p2ppn2/6BB/2qNP3/2N5/PPP2PPP/R2Q1RK1 w kq 
  P  P  P  .  .  P  P  P
  R  .  .  Q  .  R  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.21464 seconds
+Time to create and traverse the search tree: 1.22436 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 47
@@ -167,7 +167,7 @@ Testing Position 4: r2qrb1k/1p1b2p1/p2ppn1p/8/3NP3/1BN5/PPP3QP/1K3RR1 w - -
  P  P  P  .  .  .  Q  P
  .  K  .  .  .  R  R  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.460079 seconds
+Time to create and traverse the search tree: 0.466856 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 42
@@ -206,7 +206,7 @@ Testing Position 5: 1r1bk2r/2R2ppp/p3p3/1b2P2q/4QP2/4N3/1B4PP/3R2K1 w k -
  .  B  .  .  .  .  P  P
  .  .  .  R  .  .  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.957065 seconds
+Time to create and traverse the search tree: 0.963769 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 57
@@ -245,7 +245,7 @@ Testing Position 6: r3rbk1/ppq2ppp/2b1pB2/8/6Q1/1P1B3P/P1P2PP1/R2R2K1 w - -
  P  .  P  .  .  P  P  .
  R  .  .  R  .  .  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.41457 seconds
+Time to create and traverse the search tree: 1.41538 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 52
@@ -284,7 +284,7 @@ Testing Position 7: r4r1k/4bppb/2n1p2p/p1n1P3/1p1p1BNP/3P1NP1/qP2QPB1/2RR2K1 w -
  q  P  .  .  Q  P  B  .
  .  .  R  R  .  .  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.52212 seconds
+Time to create and traverse the search tree: 1.47525 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 36
@@ -323,7 +323,7 @@ Testing Position 8: r1b2rk1/1p1nbppp/pq1p4/3B4/P2NP3/2N1p3/1PP3PP/R2Q1R1K w - -
  .  P  P  .  .  .  P  P
  R  .  .  Q  .  R  .  K
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.732766 seconds
+Time to create and traverse the search tree: 0.737137 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 48
@@ -362,7 +362,7 @@ Testing Position 9: r1b3k1/p2p1nP1/2pqr1Rp/1p2p2P/2B1PnQ1/1P6/P1PP4/1K4R1 w - -
  P  .  P  P  .  .  .  .
  .  K  .  .  .  .  R  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.258034 seconds
+Time to create and traverse the search tree: 0.254946 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 37
@@ -401,7 +401,7 @@ Testing Position 10: 8/kp5p/p4p2/P3p1p1/1Pb1P1P1/2P1b2P/3rN3/4RK2 w - -
  .  .  .  r  N  .  .  .
  .  .  .  .  R  K  .  .
 Primary search to depth: 9
-Time to create and traverse the search tree: 0.860058 seconds
+Time to create and traverse the search tree: 0.858205 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 7
@@ -442,7 +442,7 @@ Testing Position 11: 6kb/4p3/3p2P1/2p2P2/1p2P1P1/3P4/1QPq4/K1R5 w - -
  .  Q  P  q  .  .  .  .
  K  .  R  .  .  .  .  .
 Primary search to depth: 8
-Time to create and traverse the search tree: 0.509715 seconds
+Time to create and traverse the search tree: 0.502703 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 21
@@ -482,7 +482,7 @@ Testing Position 12: r2q1rk1/4bppp/p2p4/2pP4/3pP3/3Q4/PP1B1PPP/R3R1K1 w - -
  P  P  .  B  .  P  P  P
  R  .  .  .  R  .  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.495067 seconds
+Time to create and traverse the search tree: 0.502402 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 45
@@ -521,7 +521,7 @@ Testing Position 13: rnb2r1k/pp2p2p/2pp2p1/q2P1p2/8/1Pb2NP1/PB2PPBP/R2Q1RK1 w - 
  P  B  .  .  P  P  B  P
  R  .  .  Q  .  R  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.501033 seconds
+Time to create and traverse the search tree: 0.514927 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 31
@@ -560,7 +560,7 @@ Testing Position 14: 2r3k1/1p2q1pp/2b1pr2/p1pp4/6Q1/1P1PP1R1/P1PN2PP/5RK1 w - -
  P  .  P  N  .  .  P  P
  .  .  .  .  .  R  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.303327 seconds
+Time to create and traverse the search tree: 0.302182 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 43
@@ -599,7 +599,7 @@ Testing Position 15: 3rn2k/ppb2rpp/2ppqp2/5N2/2P1P3/1P5Q/PB3PPP/3RR1K1 w - -
  P  B  .  .  .  P  P  P
  .  .  .  R  R  .  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.60484 seconds
+Time to create and traverse the search tree: 1.54972 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 47
@@ -638,7 +638,7 @@ Testing Position 16: 4b3/p3kp2/6p1/3pP2p/2pP1P2/4K1P1/P3N2P/8 w - -
  P  .  .  .  N  .  .  P
  .  .  .  .  .  .  .  .
 Primary search to depth: 9
-Time to create and traverse the search tree: 0.534059 seconds
+Time to create and traverse the search tree: 0.537152 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 13
@@ -679,7 +679,7 @@ Testing Position 17: 2r3k1/pppR1pp1/4p3/4P1P1/5P2/1P4K1/P1P5/8 w - -
  P  .  P  .  .  .  .  .
  .  .  .  .  .  .  .  .
 Primary search to depth: 8
-Time to create and traverse the search tree: 1.21445 seconds
+Time to create and traverse the search tree: 1.1999 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 24
@@ -719,7 +719,7 @@ Testing Position 18: 1nk1r1r1/pp2n1pp/4p3/q2pPp1N/b1pP1P2/B1P2R2/2P1B1PP/R2Q2K1 
  .  .  P  .  B  .  P  P
  R  .  .  Q  .  .  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.468445 seconds
+Time to create and traverse the search tree: 0.464033 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 34
@@ -758,7 +758,7 @@ Testing Position 19: r1b2rk1/2q1b1pp/p2ppn2/1p6/3QP3/1BN1B3/PPP3PP/R4RK1 w - -
  P  P  P  .  .  .  P  P
  R  .  .  .  .  R  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 0.814074 seconds
+Time to create and traverse the search tree: 0.794542 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 51
@@ -797,7 +797,7 @@ Testing Position 20: r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w K
  P  P  P  B  B  P  P  P
  R  .  .  .  K  .  .  R
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.01634 seconds
+Time to create and traverse the search tree: 1.02119 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 48
@@ -836,7 +836,7 @@ Testing Position 21: r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4R
  .  P  P  .  Q  P  P  P
  R  .  .  .  .  R  K  .
 Primary search to depth: 7
-Time to create and traverse the search tree: 1.89367 seconds
+Time to create and traverse the search tree: 1.87103 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 46
@@ -875,7 +875,7 @@ Testing Position 22: r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq 
  P  p  .  P  .  .  P  P
  R  .  .  Q  .  R  K  .
 Primary search to depth: 8
-Time to create and traverse the search tree: 2.3988 seconds
+Time to create and traverse the search tree: 2.3275 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 6
@@ -915,7 +915,7 @@ Testing Position 23: 3r1k2/4npp1/1ppr3p/p6P/P2PPPP1/1NR5/5K2/2R5 w - -
  .  .  .  .  .  K  .  .
  .  .  R  .  .  .  .  .
 Primary search to depth: 8
-Time to create and traverse the search tree: 3.37665 seconds
+Time to create and traverse the search tree: 3.40773 seconds
 Primary search:
 Nodes at depth 0: 1
 Nodes at depth 1: 33
@@ -1080,31 +1080,31 @@ My eval pos 23: 0.7 vs 2.7
 
 Average difference: 2.38917
 
-Time for position 0:    0.8762
-Time for position 1:    1.11398
-Time for position 2:    1.23889
-Time for position 3:    1.21486
-Time for position 4:    0.460307
-Time for position 5:    0.957307
-Time for position 6:    1.4148
-Time for position 7:    1.52235
-Time for position 8:    0.733001
-Time for position 9:    0.258255
-Time for position 10:   0.860289
-Time for position 11:   0.510147
-Time for position 12:   0.495439
-Time for position 13:   0.501256
-Time for position 14:   0.303579
-Time for position 15:   1.60506
-Time for position 16:   0.534302
-Time for position 17:   1.21469
-Time for position 18:   0.468678
-Time for position 19:   0.814309
-Time for position 20:   1.01659
-Time for position 21:   1.89391
-Time for position 22:   2.39918
-Time for position 23:   3.37692
-Total time:  25.7843
+Time for position 0:    0.855864
+Time for position 1:    1.14112
+Time for position 2:    1.20721
+Time for position 3:    1.22458
+Time for position 4:    0.467092
+Time for position 5:    0.964027
+Time for position 6:    1.4156
+Time for position 7:    1.4755
+Time for position 8:    0.737358
+Time for position 9:    0.255162
+Time for position 10:   0.858421
+Time for position 11:   0.502927
+Time for position 12:   0.502622
+Time for position 13:   0.515177
+Time for position 14:   0.30246
+Time for position 15:   1.54998
+Time for position 16:   0.537383
+Time for position 17:   1.20012
+Time for position 18:   0.464255
+Time for position 19:   0.794761
+Time for position 20:   1.02142
+Time for position 21:   1.87126
+Time for position 22:   2.32772
+Time for position 23:   3.40796
+Total time:  25.6
 
 ---------------------------------------------
 Tests ended

@@ -11,7 +11,7 @@
 //Values for checkmates
 #define INF (int32_t)(999999)
 #define NEGINF -INF
-#define X 0         //Extra serach depth
+#define X (int)2         //Extra serach depth
 
 //Global containers for storing data about tree structure
 static uint64_t nodesAtDepth[20] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -182,7 +182,7 @@ void testAllminimax(){
     float evals[testInputs.size()];
     float timerForPos[testInputs.size()];
     int counter = 0;
-    table.reserve(1000000000);
+    //table.reserve(1000000000);
     cout << "---------------------------------------------\n" << "Starting tests\n" << "---------------------------------------------\n";
     
     for(pair<string, int> i : testInputs){

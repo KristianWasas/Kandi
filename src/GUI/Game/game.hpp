@@ -27,7 +27,7 @@ public:
 
 private:
 
-    bool whiteTurn = true;
+    bool whiteTurn;
 
     bool highLight = false;
     float highLightTime = 0;
