@@ -11,7 +11,7 @@
 //Values for checkmates
 #define INF (int32_t)(999999)
 #define NEGINF -INF
-#define X (int)2         //Extra serach depth
+#define X (int)0       //Extra serach depth
 
 //Global containers for storing data about tree structure
 static uint64_t nodesAtDepth[20] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};

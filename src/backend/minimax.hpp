@@ -11,7 +11,7 @@
 #define NEGINF -INF
 
 //The null move reduction in depth
-#define NMDEPTHREDUCTION 3
+#define NMDEPTHREDUCTION 2
 #define EXTRADEPTH 0
 //Toggles for versions of the algorithm
 #define AB true
