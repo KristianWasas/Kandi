@@ -16,7 +16,7 @@
 //Toggles for versions of the algorithm
 #define AB true
 #define NULLMOVE (true && AB)   //Null move requires AB pruning to work
-#define QSEARCH !true
+#define QSEARCH true
 #define TT !true
 
 //The null move reduction in depth for minimax2

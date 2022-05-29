@@ -3,7 +3,7 @@
 #include "game.hpp"
 
 //If you want AI vs AI or player vs player, if both false, its player vs ai
-#define AIvsAI true
+#define AIvsAI !true
 #define PvP !true
 
 #define AI_VS_AI_DEPTH 5
