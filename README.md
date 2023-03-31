@@ -1,4 +1,6 @@
 # Kandi
+Skip to bottom for english
+
 Bachelor thesis 
 
 Työn tarkoituksena on tutkia eri konseptien implementointia minimax hakualgoritmiin shakissa. Sitten vertaillaan muodostuneita haku puita ja yritetään näin ollen parantaa alkuperäistä hakualgoritmia. 
@@ -25,3 +27,5 @@ Voi toimia vanhemmilla/uusimmilla versiolla mutta ei takuuta
 Compilaus komennolla "mingw32-make", luo .exe filen jonka voi ajaa
 
 JOS KYSYTTÄVÄÄ kristian.wasastjerna@aalto.fi
+
+This is the source code for my bachelors thesis. The thesis is also in the repo. You can compile the code with "g++.exe (Rev6, Built by MSYS2 project) 11.2.0" by running the command "mingw32-make". It might compile on other version, but it might not. Note that this only works for windows. For linux you would need to replace all the SFML files with their linux versions. QUESTIONS -> kristian.wasastjerna@aalto.fi
